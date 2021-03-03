@@ -1,1 +1,1 @@
-# Form Validator
+# Vanilla Javascript Projects
