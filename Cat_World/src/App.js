@@ -27,14 +27,6 @@ export default class App{
             $target.classList.toggle("toggle-active");
         });
 
-        const cardContainer = new CardContainer({
-            $target,
-            data,
-            setModal:(data) => {
-                modal.setState(data);
-            }
-        });
-
         const search = new Search({
             $target,
             data,
@@ -43,15 +35,22 @@ export default class App{
                 cardContainer.container.innerHTML = "";
                 loader.container.classList.toggle("active");
                 const response = await api.fetchCat(keyword);
-                console.log(loader);
                 if(!response.isError){
                     setItem("data", response.data);
                     cardContainer.setState(response.data);
                     loader.container.classList.toggle("active");
                     console.log(loader);
                 }else{ // error page
-
+                    
                 }
+            }
+        });
+        
+        const cardContainer = new CardContainer({
+            $target,
+            data,
+            setModal:(data) => {
+                modal.setState(data);
             }
         });
 

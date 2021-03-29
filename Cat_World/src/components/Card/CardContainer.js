@@ -10,7 +10,7 @@ export default class CardContainer{
         this.cardIndex = 0;
         this.chkIndex = [];
         $target.appendChild(this.container);
-        this.render();
+        if(data !== null) this.render();
     }
     setState(nextData){
         this.cardIndex = 0;
@@ -51,7 +51,7 @@ export default class CardContainer{
         const cards = document.querySelectorAll(".card");
         window.addEventListener("scroll", () => {
             setTimeout(() => {
-                console.log(cards[this.cardIndex+1]);
+                // console.log(cards[this.cardIndex+1]);
                 if(cards[this.cardIndex+1] !== undefined && this.chkIndex.indexOf(this.cardIndex+1) === -1
                         && cards[this.cardIndex+1].children[0].getBoundingClientRect().top <= window.innerHeight - 20
                 ){
@@ -61,7 +61,7 @@ export default class CardContainer{
                     const cardTitle = cards[this.cardIndex+1].children[1];
                     const cardArea = cards[this.cardIndex+1].children[2];
                     cards[this.cardIndex+1].id = catInfo.id;
-                    console.log(cards[this.cardIndex+1].children[0])
+                    // console.log(cards[this.cardIndex+1].children[0])
                     cardImage.src = this.data[this.cardIndex+1].url;
                     cardTitle.innerText = catInfo.breeds[0].name;
                     cardArea.innerText = catInfo.breeds[0].origin;
