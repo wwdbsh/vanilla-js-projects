@@ -3,6 +3,7 @@ import CardsContainer from "./components/CardsContainer.js";
 import ClearBtn from "./components/ClearBtn.js";
 import Header from "./components/Header.js";
 import Navigation from "./components/Navigation.js";
+import { setVariable } from "./script.js";
 
 export default class App{
     constructor($target){
@@ -11,5 +12,6 @@ export default class App{
         const cardsContainer = new CardsContainer({$target});
         const navigation = new Navigation({$target});
         const addContainer = new AddContainer({$target});
+        setVariable();
     }
 }

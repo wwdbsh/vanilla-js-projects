@@ -4,7 +4,7 @@ export default class CardsContainer{
         this.container.id = "cards-container";
         this.container.className = "cards";
         $target.appendChild(this.container);
-        this.render();
+        // this.render();
     }
     render(){
         const active = document.createElement("div");
