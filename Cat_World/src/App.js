@@ -46,6 +46,7 @@ export default class App{
             }
         });
         
+        
         const cardContainer = new CardContainer({
             $target,
             data,
