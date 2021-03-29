@@ -27,6 +27,14 @@ export default class App{
             $target.classList.toggle("toggle-active");
         });
 
+        const cardContainer = new CardContainer({
+            $target,
+            data,
+            setModal:(data) => {
+                modal.setState(data);
+            }
+        });
+
         const search = new Search({
             $target,
             data,
@@ -44,14 +52,6 @@ export default class App{
                 }else{ // error page
 
                 }
-            }
-        });
-
-        const cardContainer = new CardContainer({
-            $target,
-            data,
-            setModal:(data) => {
-                modal.setState(data);
             }
         });
 
