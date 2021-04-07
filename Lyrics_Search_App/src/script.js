@@ -25,6 +25,30 @@ const addEvents = () => {
             searchSongs(searchTerm);
         }
     });
+    // get lylics button click
+    result.addEventListener("click", e => {
+        const clickedEl = e.target;
+        if(clickedEl.tagName === "BUTTON"){
+            const artist = clickedEl.getAttribute("data-artist");
+            const songTitle = clickedEl.getAttribute("data-songtitle");
+            getLyrics(artist, songTitle);
+        }
+    });
+};
+
+// get lyrics for song
+const getLyrics = async (artist, songTitle) => {
+    const data = await (await fetch(`${apiURL}/v1/${artist}/${songTitle}`)).json();
+    const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>");
+    result.innerHTML = `
+        <h2>
+            <strong>
+                ${artist}
+            </strong> - ${songTitle}
+        </h2>
+        <span>${lyrics}</span>
+    `;
+    more.innerHTML = "";
 };
 
 // search by song or artist
