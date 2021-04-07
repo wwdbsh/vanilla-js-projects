@@ -61,23 +61,13 @@ const showData = (data) => {
     `;
     if(data.prev || data.next){
         more.innerHTML = `
-            ${data.prev ?
-                 `<button
-                   class="btn"
-                   onclick="${getMoreSongs(data.prev)}"
-                   >
-                    Prev
-                   </button>`
-                    : ""}
-            ${data.next ?
-                 `<button
-                  class="btn"
-                  onclick="${getMoreSongs(data.next)}"
-                  >
-                    Next
-                  </button>`
-                   : ""}
+            ${data.prev ? `<button id="prev-btn" class="btn">Prev</button>` : ""}
+            ${data.next ? `<button id="next-btn" class="btn">Next</button>` : ""}
         `;
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        if(prevBtn) prevBtn.addEventListener("click", () => getMoreSongs(data.prev));
+        if(nextBtn) nextBtn.addEventListener("click", () => getMoreSongs(data.next));
     }else{
         more.innerHTML = "";
     }
