@@ -9,6 +9,10 @@ export default class Container{
         circle.className = "circle";
         this.container.appendChild(circle);
 
+        const text = document.createElement("p");
+        text.id = "text";
+        this.container.appendChild(text);
+
         const ptrContainer = document.createElement("div");
         ptrContainer.className = "pointer-container";
         this.container.appendChild(ptrContainer);
