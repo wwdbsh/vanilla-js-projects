@@ -5,6 +5,7 @@ const totalTime = 7500;
 const breatheTime = (totalTime/5)*2;
 const holdTime = totalTime/5;
 
+// set DOM elements to variables
 export const setDOMInstances = () => {
     container = document.getElementById("container");
     text = document.getElementById("text");
@@ -15,10 +16,8 @@ export const setDOMInstances = () => {
 const breathAnimation = () => {
     text.innerText = "Breathe In!";
     container.className = "container grow";
-
     setTimeout(() => {
         text.innerText = "Hold";
-
         setTimeout(() => {
             text.innerText = "Breathe Out!";
             container.className = "container shrink";
