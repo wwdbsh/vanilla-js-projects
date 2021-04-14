@@ -1,6 +1,7 @@
 import Button from "./components/Button.js";
 import Canvas from "./components/Canvas.js";
 import RulesContainer from "./components/RulesContainer.js";
+import { getDOMElements } from "./script.js";
 
 export default class App{
     constructor($target){
@@ -27,5 +28,7 @@ export default class App{
             width:"800",
             height:"600"
         });
+
+        getDOMElements();
     }
 }
