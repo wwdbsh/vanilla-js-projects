@@ -1,5 +1,5 @@
 import Container from "./components/Container.js";
-import Header1 from "./components/Header1.js";
+import Header from "./components/Header.js";
 import Spinner from "./components/Spinner.js";
 import Time from "./components/TimeBox/Time.js";
 
@@ -12,7 +12,7 @@ export default class App{
             children:null
         });
 
-        const title = new Header1({$target});
+        const title = new Header({$target});
         title.setState({title:"New Year Countdown"});
 
         const countdownBox = new Container({$target});
