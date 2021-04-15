@@ -2,6 +2,7 @@ import Container from "./components/Container.js";
 import Header from "./components/Header.js";
 import Spinner from "./components/Spinner.js";
 import Time from "./components/TimeBox/Time.js";
+import { getDocumentElements } from "./script.js";
 
 export default class App{
     constructor($target){
@@ -34,5 +35,7 @@ export default class App{
             id:"loading",
             className:"loading"
         });
+
+        getDocumentElements();
     }
 }
