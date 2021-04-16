@@ -2,6 +2,7 @@ import Button from "./components/Button.js";
 import DragList from "./components/DragList.js";
 import Guide from "./components/Guide.js";
 import Header from "./components/Header.js";
+import { getDocumentElements } from "./script.js";
 
 export default class App{
     constructor($target){
@@ -16,5 +17,7 @@ export default class App{
 
         const btn = new Button({$target});
         btn.setState({className:"check-btn", id:"check"});
+
+        getDocumentElements();
     }
 }
