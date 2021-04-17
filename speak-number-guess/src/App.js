@@ -1,3 +1,5 @@
+import { runScript } from "./script.js";
+
 export default class App{
     constructor($target){
         const img = document.createElement("img");
@@ -17,5 +19,7 @@ export default class App{
         msg.id = "msg";
         msg.className = "msg";
         $target.appendChild(msg);
+
+        runScript();
     }
 }
