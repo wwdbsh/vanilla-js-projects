@@ -25,3 +25,4 @@ Small vanilla js projects
 |19 | [Sortable List](https://github.com/wwdbsh/vanilla-js-projects/tree/master/sortable-list) | [Check](https://wwdbsh.github.io/vanilla-js-projects/sortable-list/) |
 |20 | [Speak Number Guessing Game](https://github.com/wwdbsh/vanilla-js-projects/tree/master/speak-number-guess) | [Check](https://wwdbsh.github.io/vanilla-js-projects/speak-number-guess/) |
 |21 | [Cat World](https://github.com/wwdbsh/vanilla-js-projects/tree/master/cat-world) | [Check](https://wwdbsh.github.io/vanilla-js-projects/cat-world/) |
+|22 | [My Momentum](https://github.com/wwdbsh/vanilla-js-projects/tree/master/my-momentum) | [Check](https://wwdbsh.github.io/vanilla-js-projects/my-momentum/) |
