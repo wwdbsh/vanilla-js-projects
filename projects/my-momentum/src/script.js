@@ -1,12 +1,16 @@
-import { BACKGROUND_IMAGES } from "./components/Common.js";
+import { BACKGROUND_IMAGES, GREETING_EXPR } from "./components/Common.js";
 
-let body = null;
-let clock = null;
+// dom elements
+let body = null; // body
+let clock = null; // clock
+let greet = null; // greeting part
 
 export const runScript = () => {
     body = document.getElementsByTagName("body")[0];
     clock = document.getElementById("clock");
-    
+    greet = document.getElementById("greet");
+
+    // greet.innerText = GREETING_EXPR[0] + "Sangheon";
     generateRandomBgImage();
     updateCurrentTime();
 };
