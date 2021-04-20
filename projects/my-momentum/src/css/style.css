@@ -72,29 +72,65 @@ body *{
     left:50%;
     transform:translate(-50%, -130%);
     max-width:100%;
-    width:500px;
-    height:300px;
+    width:400px;
+    height:220px;
     display:flex;
     flex-direction:column;
+    animation-name:modalopen;
+    animation-duration:1.2s;
 }
 
 .name-modal p{
-    margin:25px 0;
-    font-size:45px;
+    margin:20px 0 10px 0;
+    padding-bottom:20px;
+    font-size:35px;
     font-weight:500;
+    border-bottom:2px solid #fff;
 }
 
 .name-modal input{
+    background-color:transparent;
+    color:#fff;
     outline:none;
     font-size:25px;
-    padding:15px 0px 0 0;
-    margin:0px;
-    background-color:transparent;
-    border:0px 1px 0px 0px solid rgba(255,255,255,1);
+    font-style:italic;
+    padding:10px 0 5px 5px;
+    margin:0px 50px;
+    border:0;
+    border-bottom:2px dotted #fff;
+}
+
+.name-modal input:focus{
+    outline: none;
+    border-bottom:3px solid #fff;
+    font-style: normal;
+}
+
+.name-modal input:hover{
+    transform: scale(1.05);
+}
+
+.name-modal input::placeholder{
+    color:rgba(255, 255, 255, 0.6);
 }
 
 .name-modal button{
-    
+    cursor:pointer;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    color:rgba(0,0,0,0.5);
+    border-radius:5px;
+    font-size:15px;
+    font-weight: 600;
+    border:0;
+    left:50%;
+    bottom:20px;
+    transform:translate(-50%, 0);
+    padding:13px 25px;    
+}
+
+.name-modal button:focus{
+    outline: none;
 }
 
 @media (max-width:620px){
@@ -112,5 +148,14 @@ body *{
     }
     .greet{
         font-size:20px;
+    }
+}
+
+@keyframes modalopen {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
     }
 }
