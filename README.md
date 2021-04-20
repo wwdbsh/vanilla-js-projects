@@ -1,6 +1,6 @@
 ## Vanilla Javascript Projects
 
-Small vanilla js projects
+Small vanilla js projects with html5, css, and pure vanilla javascript without any javascript frameworks and libraries
 
 | # | Project | Demo |
 |:-:|:-------:|:----:|
