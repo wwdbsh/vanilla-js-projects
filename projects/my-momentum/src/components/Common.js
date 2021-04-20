@@ -13,3 +13,9 @@ export const BACKGROUND_IMAGES = [
     "sunset.jpg",
     "waterfall.jpg"
 ];
+
+export const GREETING_EXPR = [
+    "Good morning, ",
+    "Good afternoon, ",
+    "Good evening, "
+];
