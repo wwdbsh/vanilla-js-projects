@@ -143,6 +143,31 @@ body *{
     outline: none;
 }
 
+.btn{
+    background-color: rgba(255, 255, 255, 0.6);
+    color:rgba(0,0,0,0.5);
+    border-radius:5px;
+    position:absolute;
+    top:20px;
+    right:30px;
+    padding:10px 15px;
+    cursor:pointer;
+}
+
+.reset-btn{
+    display:none;
+}
+
+.reset-btn.show{
+    display:block;
+    animation-name:showelement;
+    animation-duration:1.2s;
+}
+
+.btn:focus{
+    outline:none;
+}
+
 @media (max-width:620px){
     .clock{
         font-size:130px;
@@ -169,6 +194,7 @@ body *{
         opacity:1;
     }
 }
+
 @keyframes showproverb {
     from{
         opacity:0;

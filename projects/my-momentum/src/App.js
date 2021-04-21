@@ -1,3 +1,4 @@
+import Button from "./components/Button.js";
 import Clock from "./components/Clock.js";
 import Greeting from "./components/Greeting.js";
 import NameModal from "./components/NameModal.js";
@@ -12,6 +13,12 @@ export default class App{
         greeting.setState({className:"greet"});
 
         const nameModal = new NameModal({$target});
+
+        const resetBtn = new Button({$target});
+        resetBtn.setState({
+            className:"reset-btn",
+            content:"Reset",
+        });
 
         runScript();
     }

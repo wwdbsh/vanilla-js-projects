@@ -5,6 +5,7 @@ let body = null; // body
 let clock = null; // clock
 let greet = null; // greeting part
 let innerGreet = null; // inner element of greet
+let resetBtn = null; // reset button
 
 // name modal
 let nameModalContainer = null;
@@ -14,6 +15,7 @@ let nameModalBtn = null;
 // greeting based on current time
 let greetText = null; 
 
+
 export const runScript = () => {
     body = document.getElementsByTagName("body")[0];
     clock = document.getElementById("clock");
@@ -21,6 +23,7 @@ export const runScript = () => {
     nameModalContainer = document.getElementById("name-modal-container");
     nameModalInput = document.getElementById("name-input");
     nameModalBtn = document.getElementById("name-submit-btn");
+    resetBtn = document.getElementById("reset-btn");
     
     generateRandomBgImage();
     updateCurrentTime();
@@ -45,6 +48,7 @@ const checkRegisteredUser = () => {
         innerGreet = document.getElementById("inner-greet");
         innerGreet.addEventListener("mouseover", () => innerGreet.innerText = PROVERBS_COLLECTION[Math.floor(Math.random()*PROVERBS_COLLECTION.length)]);
         innerGreet.addEventListener("mouseleave", () => innerGreet.innerText = greetText + user);
+        resetBtn.classList.add("show");
     }else{
         nameModalContainer.classList.add("show-modal");
     }
@@ -60,6 +64,7 @@ const registerUser = () => {
         innerGreet = document.getElementById("inner-greet");
         innerGreet.addEventListener("mouseover", () => innerGreet.innerText = PROVERBS_COLLECTION[Math.floor(Math.random()*PROVERBS_COLLECTION.length)]);
         innerGreet.addEventListener("mouseleave", () => innerGreet.innerText = greetText + name);
+        resetBtn.classList.add("show");
     }
 };
 
