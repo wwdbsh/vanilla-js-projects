@@ -49,12 +49,12 @@ body *{
 
 .inner-greet:hover{
     animation-name:showproverb;
-    animation-duration:1.2s;
+    animation-duration:2s;
 }
 
 .inner-greet:not(:hover){
     animation-name:showelement;
-    animation-duration:1.2s;
+    animation-duration:2s;
 }
 
 .name-modal-container{
@@ -87,7 +87,7 @@ body *{
     display:flex;
     flex-direction:column;
     animation-name:showelement;
-    animation-duration:1.2s;
+    animation-duration:2s;
 }
 
 .name-modal p{
@@ -161,7 +161,7 @@ body *{
 .reset-btn.show{
     display:block;
     animation-name:showelement;
-    animation-duration:1.2s;
+    animation-duration:2s;
 }
 
 .btn:focus{

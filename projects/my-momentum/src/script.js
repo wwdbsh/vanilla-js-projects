@@ -34,9 +34,19 @@ export const runScript = () => {
 
 // add events
 const addEventListeners = () => {
+    resetBtn.addEventListener("click", resetLocalStorage); // reset button
+    
     // name modal events
     nameModalBtn.addEventListener("click", registerUser); // name modal btn
     nameModalInput.addEventListener("keyup", e => {if(e.keyCode === 13) registerUser();});
+};
+
+// reset local storage
+const resetLocalStorage = () => {
+    localStorage.clear();
+    innerGreet.innerText = "";
+    resetBtn.classList.remove("show");
+    nameModalContainer.classList.add("show-modal");
 };
 
 // check if a user is registered
@@ -57,6 +67,7 @@ const checkRegisteredUser = () => {
 // register an user
 const registerUser = () => {
     const name = nameModalInput.value;
+    nameModalInput.value = "";
     if(name){
         localStorage.setItem("reg-user", name);
         nameModalContainer.classList.remove("show-modal");
