@@ -57,7 +57,7 @@ body *{
     animation-duration:2s;
 }
 
-.name-modal-container{
+.name-modal-container, .reset-modal-container{
     background-color: rgba(0,0,0,0.6);
     position:fixed;
     width:100%;
@@ -69,8 +69,41 @@ body *{
     display:none;
 }
 
-.name-modal-container.show-modal{
+.name-modal-container.show-modal,
+.reset-modal-container.show-modal{
     display:block;
+}
+
+.reset-modal{
+    background-color: rgba(255, 255, 255, 0.5);
+    position:absolute;
+    overflow:hidden;
+    border-radius:10px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -130%);
+    max-width:100%;
+    width:300px;
+    display:flex;
+    flex-direction:column;
+    animation-name:showelement;
+    animation-duration:2s;
+}
+
+.reset-modal p{
+    font-size:20px;
+    margin:20px 10px 10px 10px;
+}
+
+.asking-modal-btn-container{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+.asking-modal-btn-container .btn{
+    padding:10px 50px;
+    margin:10px 10px;
 }
 
 .name-modal{
@@ -147,15 +180,15 @@ body *{
     background-color: rgba(255, 255, 255, 0.6);
     color:rgba(0,0,0,0.5);
     border-radius:5px;
-    position:absolute;
-    top:20px;
-    right:30px;
     padding:10px 15px;
     cursor:pointer;
 }
 
 .reset-btn{
     display:none;
+    position:absolute;
+    top:20px;
+    right:30px;
 }
 
 .reset-btn.show{

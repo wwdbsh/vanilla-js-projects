@@ -1,3 +1,4 @@
+import AskingModal from "./components/AskingModal.js";
 import Button from "./components/Button.js";
 import Clock from "./components/Clock.js";
 import Greeting from "./components/Greeting.js";
@@ -18,6 +19,15 @@ export default class App{
         resetBtn.setState({
             className:"reset-btn",
             content:"Reset",
+        });
+
+        const resetModal = new AskingModal({
+            $target,
+            question:"Are you sure you want to reset?",
+            containerName:"reset-modal-container show-modal",
+            modalName:"reset-modal",
+            yes:"reset-submit",
+            no:"reset-cancel"
         });
 
         runScript();
