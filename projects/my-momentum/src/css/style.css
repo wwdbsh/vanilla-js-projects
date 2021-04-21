@@ -43,8 +43,16 @@ body *{
     margin:0 40px;
 }
 
-.greet{
+.inner-greet{
     font-size:50px;
+}
+
+.inner-greet:hover{
+    animation-name:showproverb;
+    animation-duration:1.2s;
+}
+
+.inner-greet:not(:hover){
     animation-name:showelement;
     animation-duration:1.2s;
 }
@@ -154,6 +162,14 @@ body *{
 }
 
 @keyframes showelement {
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+@keyframes showproverb {
     from{
         opacity:0;
     }

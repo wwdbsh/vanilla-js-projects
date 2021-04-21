@@ -17,5 +17,25 @@ export const BACKGROUND_IMAGES = [
 export const GREETING_EXPR = [
     "Good morning, ",
     "Good afternoon, ",
-    "Good evening, "
+    "Good evening, ",
+    "Have a good night, "
 ];
+
+export const PROVERBS_COLLECTION = [
+    "All we have is now",
+    "Let them be them, let us be us",
+    "One day or day one. It's your choice",
+    "No one is you and that is your power",
+    "Don't stop until you're proud",
+    "Make it happen. Shock everyone",
+    "Your life isn't yours if you always care what others think",
+    "We cannot become what we want by remaining waht we are",
+    "The secret of your success is found in your daily routine",
+    "A negative mind will never give you a positive life",
+    "You are what you do, not hwat you say you'll do",
+    "How you love yourself is how you teach others to love you",
+    "Promise little, do much",
+    "Every thing is going to be alright",
+    "Wisely, and slow"
+];
+
