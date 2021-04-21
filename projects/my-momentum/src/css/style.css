@@ -38,6 +38,7 @@ body *{
 }
 
 .clock{
+    cursor:context-menu;
     font-size:150px;
     color:rgba(255, 255, 255, 0.8);
     margin:0 40px;
@@ -45,6 +46,7 @@ body *{
 
 .inner-greet{
     font-size:50px;
+    cursor:context-menu;
 }
 
 .inner-greet:hover{
