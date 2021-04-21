@@ -7,7 +7,7 @@ Create fancy UI to make a list of tasks to do
 - Display current time
 - Generate a random background image
 - Generate a random proverb with mouse over event
-- Create a modal to register a user
+- Create modals to register a user, to ask reset
 - Register a user with local storage
 - Fetch cached data in local storage
 - Fancy animation effects

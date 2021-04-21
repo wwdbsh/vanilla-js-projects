@@ -24,7 +24,7 @@ export default class App{
         const resetModal = new AskingModal({
             $target,
             question:"Are you sure you want to reset?",
-            containerName:"reset-modal-container show-modal",
+            containerName:"reset-modal-container",
             modalName:"reset-modal",
             yes:"reset-submit",
             no:"reset-cancel"

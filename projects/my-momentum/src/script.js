@@ -13,7 +13,12 @@ let nameModalInput = null;
 let nameModalBtn = null;
 
 // greeting based on current time
-let greetText = null; 
+let greetText = null;
+
+// reset modal
+let resetModalContainer = null;
+let resetModalSubmit = null;
+let resetModalCancel = null;
 
 
 export const runScript = () => {
@@ -24,6 +29,9 @@ export const runScript = () => {
     nameModalInput = document.getElementById("name-input");
     nameModalBtn = document.getElementById("name-submit-btn");
     resetBtn = document.getElementById("reset-btn");
+    resetModalContainer = document.getElementById("reset-modal-container");
+    resetModalSubmit = document.getElementById("reset-submit");
+    resetModalCancel = document.getElementById("reset-cancel");
     
     generateRandomBgImage();
     updateCurrentTime();
@@ -34,8 +42,12 @@ export const runScript = () => {
 
 // add events
 const addEventListeners = () => {
-    resetBtn.addEventListener("click", resetLocalStorage); // reset button
-    
+    // reset modal events
+    resetBtn.addEventListener("click", () => resetModalContainer.classList.add("show-modal")); // reset button
+    resetModalCancel.addEventListener("click", () => resetModalContainer.classList.remove("show-modal")); // reset cancel
+    resetModalContainer.addEventListener("click", () => resetModalContainer.classList.remove("show-modal"));
+    resetModalSubmit.addEventListener("click", resetLocalStorage); // reset confirm
+
     // name modal events
     nameModalBtn.addEventListener("click", registerUser); // name modal btn
     nameModalInput.addEventListener("keyup", e => {if(e.keyCode === 13) registerUser();});
@@ -46,6 +58,7 @@ const resetLocalStorage = () => {
     localStorage.clear();
     innerGreet.innerText = "";
     resetBtn.classList.remove("show");
+    resetModalContainer.classList.remove("show-modal");
     nameModalContainer.classList.add("show-modal");
 };
 
