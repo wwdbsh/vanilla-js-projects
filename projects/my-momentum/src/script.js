@@ -33,10 +33,9 @@ export const runScript = () => {
     resetModalSubmit = document.getElementById("reset-submit");
     resetModalCancel = document.getElementById("reset-cancel");
     
-    generateRandomBgImage();
     updateCurrentTime();
+    generateRandomBgImage();
     checkRegisteredUser();
-    
     addEventListeners(); // add events
 };
 

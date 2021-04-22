@@ -12,6 +12,8 @@ body{
     font-family:"Lato", sans-serif;
     text-align:center;
     margin:0;
+    animation-name:showelement;
+    animation-duration:1.2s;
 }
 
 .app::after{
