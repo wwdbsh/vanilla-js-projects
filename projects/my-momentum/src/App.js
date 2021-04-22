@@ -13,6 +13,8 @@ export default class App{
         const greeting = new Greeting({$target});
         greeting.setState({className:"greet"});
 
+        
+
         const nameModal = new NameModal({$target});
 
         const resetBtn = new Button({$target});
