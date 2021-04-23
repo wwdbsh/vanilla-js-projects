@@ -202,11 +202,55 @@ body *{
     margin:10px;
     transform:translateY(120%);
     transition:transform 1s ease-in-out;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
 }
 
 .todo-container.show{
     transform:translateY(-15%);
     transition:transform 1s ease-in-out;
+}
+
+.enter-line{
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:center;
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    width:100%;
+    margin-bottom:5px;
+}
+
+.todo-input{
+    background-color:transparent;
+    border:0;
+    width:75%;
+    font-size:13px;
+    color:rgba(255, 255, 255, 0.6);
+    padding-bottom:5px;
+    padding-left:5px;
+    margin-right:5px;
+    border-bottom:1px dotted rgba(255, 255, 255, 0.6);
+}
+
+.todo-input::placeholder{
+    color:rgba(255, 255, 255, 0.6);
+    font-style:italic;
+}
+
+.todo-input:focus{
+    outline:none;
+}
+
+#todo-add-btn{
+    font-size:10px;
+    padding:7px;
+    font-weight: 900;
+    border-radius:10px;
 }
 
 .btn{

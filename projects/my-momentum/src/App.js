@@ -30,7 +30,7 @@ export default class App{
         const todoBtn = new Button({$target});
         todoBtn.setState({
             className:"todo-btn",
-            content:"TODO"
+            content:"Todo"
         });
 
         const resetModal = new AskingModal({
