@@ -14,6 +14,7 @@ body{
     margin:0;
     animation-name:showelement;
     animation-duration:1.2s;
+    overflow:hidden;
 }
 
 .app::after{
@@ -190,6 +191,24 @@ body *{
     outline: none;
 }
 
+.todo-container{
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:300px;
+    height:400px;
+    background-color:rgba(83, 76, 76, 0.6);
+    border-radius:10px;
+    margin:10px;
+    transform:translateY(120%);
+    transition:transform 1s ease-in-out;
+}
+
+.todo-container.show{
+    transform:translateY(-15%);
+    transition:transform 1s ease-in-out;
+}
+
 .btn{
     background-color: rgba(255, 255, 255, 0.6);
     color:rgba(0,0,0,0.5);
@@ -265,5 +284,14 @@ body *{
     }
     to{
         opacity:1;
+    }
+}
+
+@keyframes hidebutton {
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0;
     }
 }

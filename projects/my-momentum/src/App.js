@@ -4,6 +4,7 @@ import Clock from "./components/Clock.js";
 import Greeting from "./components/Greeting.js";
 import MainTask from "./components/MainTask.js";
 import NameModal from "./components/NameModal.js";
+import TodoBox from "./components/TodoBox.js";
 import { runScript } from "./script.js";
 
 export default class App{
@@ -15,6 +16,8 @@ export default class App{
         greeting.setState({className:"greet"});
 
         const mainTask = new MainTask({$target});
+
+        const todoContainer = new TodoBox({$target});
 
         const nameModal = new NameModal({$target});
 

@@ -14,6 +14,9 @@ let nameModalContainer = null;
 let nameModalInput = null;
 let nameModalBtn = null;
 
+// todo
+let todoContainer = null;
+
 // greeting based on current time
 let greetText = null;
 
@@ -36,6 +39,7 @@ export const runScript = () => {
     resetModalContainer = document.getElementById("reset-modal-container");
     resetModalSubmit = document.getElementById("reset-submit");
     resetModalCancel = document.getElementById("reset-cancel");
+    todoContainer = document.getElementById("todo-container");
     
     updateCurrentTime();
     generateRandomBgImage();
@@ -54,6 +58,10 @@ const addEventListeners = () => {
     // name modal events
     nameModalBtn.addEventListener("click", registerUser); // name modal btn
     nameModalInput.addEventListener("keyup", e => {if(e.keyCode === 13) registerUser();});
+
+    // todo events
+    todoBtn.addEventListener("click", () => todoContainer.classList.toggle("show")); // todo button
+
 };
 
 // reset local storage
@@ -62,6 +70,7 @@ const resetLocalStorage = () => {
     innerGreet.innerText = "";
     resetBtn.classList.remove("show");
     todoBtn.classList.remove("show");
+    todoContainer.classList.remove("show");
     resetModalContainer.classList.remove("show-modal");
     nameModalContainer.classList.add("show-modal");
 };
