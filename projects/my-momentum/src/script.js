@@ -6,6 +6,7 @@ let clock = null; // clock
 let greet = null; // greeting part
 let innerGreet = null; // inner element of greet
 let resetBtn = null; // reset button
+let date = null; // date
 
 // name modal
 let nameModalContainer = null;
@@ -24,6 +25,7 @@ let resetModalCancel = null;
 export const runScript = () => {
     body = document.getElementsByTagName("body")[0];
     clock = document.getElementById("clock");
+    date = document.getElementById("date");
     greet = document.getElementById("greet");
     nameModalContainer = document.getElementById("name-modal-container");
     nameModalInput = document.getElementById("name-input");
@@ -103,7 +105,11 @@ const updateCurrentTime = () => {
     const h = currentTime.getHours();
     const m = currentTime.getMinutes();
     const s = currentTime.getSeconds();
+    const dateString = currentTime.toDateString().split(" ");
+
+    console.log(currentTime.getDate(), currentTime.getDay(), currentTime.getFullYear(), currentTime.getMonth())
     clock.innerText = `${h < 10 ? "0" + h : h}:${m < 10 ? "0" + m : m}:${s < 10 ? "0"+s : s}`;
+    date.innerText = `${dateString[1].toUpperCase()} ${dateString[2]}, ${dateString[3]}`;
     if(h >= 6 && h < 12){
         greetText = GREETING_EXPR[0];
     }else if(h >= 12 && h < 18){

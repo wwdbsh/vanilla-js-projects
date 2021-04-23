@@ -46,6 +46,14 @@ body *{
     margin:0 40px;
 }
 
+.date{
+    cursor:context-menu;
+    font-size:23px;
+    color:rgba(255, 255, 255, 0.9);
+    margin:5px 40px;
+    letter-spacing:4px;
+}
+
 .inner-greet{
     font-size:50px;
     font-weight:700;

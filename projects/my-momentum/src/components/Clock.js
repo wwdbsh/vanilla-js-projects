@@ -8,6 +8,11 @@ export default class Clock{
         clock.id = "clock";
         clock.innerText = "00:00:00";
         this.container.appendChild(clock);
+        
+        const date = document.createElement("h3");
+        date.className = "date";
+        date.id = "date";
+        this.container.appendChild(date);
     }
     setState(props){
         this.container.className = props.className;
