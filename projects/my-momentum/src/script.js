@@ -6,6 +6,7 @@ let clock = null; // clock
 let greet = null; // greeting part
 let innerGreet = null; // inner element of greet
 let resetBtn = null; // reset button
+let todoBtn = null; // todo button
 let date = null; // date
 
 // name modal
@@ -31,6 +32,7 @@ export const runScript = () => {
     nameModalInput = document.getElementById("name-input");
     nameModalBtn = document.getElementById("name-submit-btn");
     resetBtn = document.getElementById("reset-btn");
+    todoBtn = document.getElementById("todo-btn");
     resetModalContainer = document.getElementById("reset-modal-container");
     resetModalSubmit = document.getElementById("reset-submit");
     resetModalCancel = document.getElementById("reset-cancel");
@@ -59,6 +61,7 @@ const resetLocalStorage = () => {
     localStorage.clear();
     innerGreet.innerText = "";
     resetBtn.classList.remove("show");
+    todoBtn.classList.remove("show");
     resetModalContainer.classList.remove("show-modal");
     nameModalContainer.classList.add("show-modal");
 };
@@ -73,6 +76,7 @@ const checkRegisteredUser = () => {
         innerGreet.addEventListener("mouseover", () => innerGreet.innerText = PROVERBS_COLLECTION[Math.floor(Math.random()*PROVERBS_COLLECTION.length)]);
         innerGreet.addEventListener("mouseleave", () => innerGreet.innerText = greetText + user);
         resetBtn.classList.add("show");
+        todoBtn.classList.add("show");
     }else{
         nameModalContainer.classList.add("show-modal");
     }
@@ -90,6 +94,7 @@ const registerUser = () => {
         innerGreet.addEventListener("mouseover", () => innerGreet.innerText = PROVERBS_COLLECTION[Math.floor(Math.random()*PROVERBS_COLLECTION.length)]);
         innerGreet.addEventListener("mouseleave", () => innerGreet.innerText = greetText + name);
         resetBtn.classList.add("show");
+        todoBtn.classList.add("show");
     }
 };
 
@@ -106,8 +111,6 @@ const updateCurrentTime = () => {
     const m = currentTime.getMinutes();
     const s = currentTime.getSeconds();
     const dateString = currentTime.toDateString().split(" ");
-
-    console.log(currentTime.getDate(), currentTime.getDay(), currentTime.getFullYear(), currentTime.getMonth())
     clock.innerText = `${h < 10 ? "0" + h : h}:${m < 10 ? "0" + m : m}:${s < 10 ? "0"+s : s}`;
     date.innerText = `${dateString[1].toUpperCase()} ${dateString[2]}, ${dateString[3]}`;
     if(h >= 6 && h < 12){

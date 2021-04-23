@@ -50,7 +50,7 @@ body *{
     cursor:context-menu;
     font-size:23px;
     color:rgba(255, 255, 255, 0.9);
-    margin:5px 40px;
+    margin:0 40px;
     letter-spacing:4px;
 }
 
@@ -198,21 +198,38 @@ body *{
     cursor:pointer;
 }
 
-.reset-btn{
-    display:none;
-    position:absolute;
-    top:20px;
-    right:30px;
+.btn:active{
+    transform:scale(.98);
 }
 
-.reset-btn.show{
+.btn:focus{
+    outline:none;
+}
+
+.btn.show{
     display:block;
     animation-name:showelement;
     animation-duration:2s;
 }
 
-.btn:focus{
-    outline:none;
+.reset-btn{
+    display:none;
+    position:absolute;
+    bottom:20px;
+    left:30px;
+    font-size:15px;
+    font-weight:600;
+    border-radius:100px;
+}
+
+.todo-btn{
+    display:none;
+    position:absolute;
+    bottom:20px;
+    right:30px;
+    font-size:15px;
+    font-weight:600;
+    border-radius:100px;
 }
 
 @media (max-width:620px){
