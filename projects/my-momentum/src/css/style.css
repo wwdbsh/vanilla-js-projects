@@ -204,7 +204,6 @@ body *{
     transition:transform 1s ease-in-out;
     display:flex;
     flex-direction: column;
-    align-items:center;
 }
 
 .todo-container.show{
@@ -227,6 +226,21 @@ body *{
 
 .todo-nav td:active{
     transform:scale(0.98);
+}
+
+.pending-list, .completed-list{
+    overflow:scroll;
+    height:312px;
+}
+
+.pending-list::-webkit-scrollbar,
+.completed-list::-webkit-scrollbar{
+    display:none;
+}
+
+
+ul li{
+    margin-bottom: 10px;
 }
 
 .enter-line{

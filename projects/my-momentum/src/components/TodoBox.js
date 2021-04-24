@@ -1,4 +1,5 @@
 import Button from "./Button.js";
+import List from "./List.js";
 
 export default class TodoBox{
     constructor({$target}){
@@ -7,6 +8,7 @@ export default class TodoBox{
         this.container.id = "todo-container";
         $target.appendChild(this.container);
 
+        /****************************************/
         const nav = document.createElement("div");
         nav.className = "todo-nav";
         nav.id = "todo-nav";
@@ -29,7 +31,19 @@ export default class TodoBox{
         completed.className = "completed-nav";
         completed.id = "completed-nav";
         tr.appendChild(completed);
+        /****************************************/
 
+        /****************************************/
+        const pendingList = new List({$target:this.container});
+        pendingList.setState({className:"pending-list"});
+        /****************************************/
+
+        /****************************************/
+        // const completedList = new List({$target:this.container});
+        // completedList.setState({className:"completed-list"});
+        /****************************************/
+
+        /****************************************/
         const enterLine = document.createElement("div");
         enterLine.className = "enter-line";
         enterLine.id = "enter-line";
@@ -47,5 +61,6 @@ export default class TodoBox{
             className:"todo-add-btn",
             content:"add"
         });
+        /****************************************/
     }
 }
