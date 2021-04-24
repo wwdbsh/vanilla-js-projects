@@ -212,6 +212,23 @@ body *{
     transition:transform 1s ease-in-out;
 }
 
+.todo-nav,
+.todo-nav table,
+.todo-nav tr{
+    width:100%;
+}
+
+.todo-nav td{
+    width:50%;
+    border:1px solid rgba(255, 255, 255, 0.5);
+    padding:8px;
+    cursor:pointer;
+}
+
+.todo-nav td:active{
+    transform:scale(0.98);
+}
+
 .enter-line{
     display:flex;
     flex-direction: row;

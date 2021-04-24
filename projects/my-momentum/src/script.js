@@ -57,11 +57,19 @@ const addEventListeners = () => {
 
     // name modal events
     nameModalBtn.addEventListener("click", registerUser); // name modal btn
-    nameModalInput.addEventListener("keyup", e => {if(e.keyCode === 13) registerUser();});
+    nameModalInput.addEventListener("keyup", e => {if(e.keyCode === 13){registerUser()}});
 
     // todo events
     todoBtn.addEventListener("click", () => todoContainer.classList.toggle("show")); // todo button
 
+    // window events
+    window.addEventListener("keyup", e => {
+        if(todoContainer.classList.contains("show")){
+            if(e.key === "Escape"){
+                todoContainer.classList.remove("show");
+            }
+        }
+    });
 };
 
 // reset local storage
