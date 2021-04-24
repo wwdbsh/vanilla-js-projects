@@ -11,5 +11,6 @@ Create fancy UI to make a list of tasks to do
 - Register a user with local storage
 - Fetch cached data in local storage
 - Fancy animation effects
+- Key events (enter, escape)
 
 [Check Demo](https://wwdbsh.github.io/vanilla-js-projects/projects/my-momentum/)

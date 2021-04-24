@@ -64,9 +64,14 @@ const addEventListeners = () => {
 
     // window events
     window.addEventListener("keyup", e => {
-        if(todoContainer.classList.contains("show")){
+        if(todoContainer.classList.contains("show")){ // todo box
             if(e.key === "Escape"){
                 todoContainer.classList.remove("show");
+            }
+        }
+        if(resetModalContainer.classList.contains("show-modal")){ // reset modal
+            if(e.key === "Escape"){
+                resetModalContainer.classList.remove("show-modal");
             }
         }
     });
