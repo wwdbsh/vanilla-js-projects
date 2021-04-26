@@ -72,10 +72,14 @@ const addEventListeners = () => {
     pendingNav.addEventListener("click", () => {
         pendingList.classList.add("show");
         finishedList.classList.remove("show");
+        pendingNav.classList.add("fill");
+        finishedNav.classList.remove("fill");
     });
     finishedNav.addEventListener("click", () => {
         pendingList.classList.remove("show");
         finishedList.classList.add("show");
+        pendingNav.classList.remove("fill");
+        finishedNav.classList.add("fill");
     });
 
     // window events

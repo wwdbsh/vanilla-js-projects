@@ -22,7 +22,7 @@ export default class TodoBox{
 
         const pending = document.createElement("td");
         pending.innerText = "Pending";
-        pending.className = "pending-nav";
+        pending.className = "pending-nav fill";
         pending.id = "pending-nav";
         tr.appendChild(pending);
         

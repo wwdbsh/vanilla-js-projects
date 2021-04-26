@@ -218,13 +218,21 @@ body *{
     width:100%;
 }
 
-.todo-nav td{
+.pending-nav,
+.finished-nav{
     width:50%;
     border:1px solid rgba(255, 255, 255, 0.5);
     color:rgba(255, 255, 255, 0.8);
     padding:8px;
     font-weight:400;
     cursor:pointer;
+}
+
+.pending-nav.fill,
+.finished-nav.fill{
+    background-color: rgba(255, 255, 255, 0.8);
+    color:rgba(0,0,0,0.8);
+    font-weight:600;
 }
 
 .todo-nav td:active{
