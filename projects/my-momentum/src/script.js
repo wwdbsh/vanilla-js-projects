@@ -16,6 +16,10 @@ let nameModalBtn = null;
 
 // todo
 let todoContainer = null;
+let pendingNav = null;
+let finishedNav = null;
+let pendingList = null;
+let finishedList = null;
 
 // greeting based on current time
 let greetText = null;
@@ -40,6 +44,10 @@ export const runScript = () => {
     resetModalSubmit = document.getElementById("reset-submit");
     resetModalCancel = document.getElementById("reset-cancel");
     todoContainer = document.getElementById("todo-container");
+    pendingNav = document.getElementById("pending-nav");
+    finishedNav = document.getElementById("finished-nav");
+    pendingList = document.getElementById("pending-list");
+    finishedList = document.getElementById("finished-list");
     
     updateCurrentTime();
     generateRandomBgImage();
@@ -61,6 +69,14 @@ const addEventListeners = () => {
 
     // todo events
     todoBtn.addEventListener("click", () => todoContainer.classList.toggle("show")); // todo button
+    pendingNav.addEventListener("click", () => {
+        pendingList.classList.add("show");
+        finishedList.classList.remove("show");
+    });
+    finishedNav.addEventListener("click", () => {
+        pendingList.classList.remove("show");
+        finishedList.classList.add("show");
+    });
 
     // window events
     window.addEventListener("keyup", e => {
@@ -75,6 +91,8 @@ const addEventListeners = () => {
             }
         }
     });
+
+
 };
 
 // reset local storage

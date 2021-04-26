@@ -71,6 +71,6 @@ export default class List{
     }
     setState(props){
         this.container.className = props.className;
-        this.container.id = props.className;
+        this.container.id = props.id;
     }
 }

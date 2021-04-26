@@ -26,21 +26,28 @@ export default class TodoBox{
         pending.id = "pending-nav";
         tr.appendChild(pending);
         
-        const completed = document.createElement("td");
-        completed.innerText = "Completed"
-        completed.className = "completed-nav";
-        completed.id = "completed-nav";
-        tr.appendChild(completed);
+        const finished = document.createElement("td");
+        finished.innerText = "Finished"
+        finished.className = "finished-nav";
+        finished.id = "finished-nav";
+        tr.appendChild(finished);
         /****************************************/
 
         /****************************************/
-        const pendingList = new List({$target:this.container});
-        pendingList.setState({className:"pending-list"});
+        const listBox = document.createElement("div");
+        listBox.className = "list-box";
+        listBox.id = "list-box";
+        this.container.appendChild(listBox);
         /****************************************/
 
         /****************************************/
-        // const completedList = new List({$target:this.container});
-        // completedList.setState({className:"completed-list"});
+        const pendingList = new List({$target:listBox});
+        pendingList.setState({className:"pending-list show", id:"pending-list"});
+        /****************************************/
+
+        /****************************************/
+        const finishedList = new List({$target:listBox});
+        finishedList.setState({className:"finished-list", id:"finished-list"});
         /****************************************/
 
         /****************************************/

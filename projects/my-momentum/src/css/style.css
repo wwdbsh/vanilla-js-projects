@@ -193,6 +193,7 @@ body *{
 
 .todo-container{
     position:absolute;
+    overflow:hidden;
     bottom:0;
     right:0;
     width:300px;
@@ -230,12 +231,35 @@ body *{
     transform:scale(0.98);
 }
 
-.pending-list, .completed-list{
+/************************LIST BOX**************************/
+.pending-list,
+.finished-list{
     overflow:auto;
-    color:rgba(255, 255, 255, 0.9);
-    height:312px;
-    margin:1px 5px;
+    position:absolute;
+    color:rgba(255, 255, 255, 0.8);
+    height:320px;
+    margin:1px 2px;
+    padding:0 10px;
     text-align: left;
+    border:1px solid rgba(255, 255, 255, 0.5);
+}
+
+.pending-list.show,
+.finished-list.show{
+    display:block;
+    transform:translateX(0);
+    transition:transform 1s ease-in-out;
+}
+
+.pending-list{
+    transform:translateX(-110%);
+    transition:transform .7s ease-in-out;
+}
+
+.finished-list{
+    transform:translateX(110%);
+    transition:transform .7s ease-in-out;
+    text-decoration: line-through;
 }
 
 ::-webkit-scrollbar {
@@ -259,15 +283,18 @@ body *{
 }
 
 .pending-list ul,
-.completed-list ul{
+.finished-list ul{
     padding:0;
     list-style-type:none;
+    margin-top:5px;
 }
 
 ul li{
     margin-bottom: 5px;
     overflow-x:auto;
 }
+
+/************************LIST BOX**************************/
 
 .enter-line{
     display:flex;
