@@ -20,6 +20,7 @@ let pendingNav = null;
 let finishedNav = null;
 let pendingList = null;
 let finishedList = null;
+let todoInput = null;
 
 // greeting based on current time
 let greetText = null;
@@ -48,6 +49,7 @@ export const runScript = () => {
     finishedNav = document.getElementById("finished-nav");
     pendingList = document.getElementById("pending-list");
     finishedList = document.getElementById("finished-list");
+    todoInput = document.getElementById("todo-input");
     
     updateCurrentTime();
     generateRandomBgImage();
