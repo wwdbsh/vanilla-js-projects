@@ -1,6 +1,5 @@
 import { BACKGROUND_IMAGES, GREETING_EXPR, PROVERBS_COLLECTION } from "./components/Common.js";
-
-// dom elements
+/**********************DOM ELEMENTS**********************/
 let body = null; // body
 let clock = null; // clock
 let greet = null; // greeting part
@@ -14,14 +13,6 @@ let nameModalContainer = null;
 let nameModalInput = null;
 let nameModalBtn = null;
 
-// todo
-let todoContainer = null;
-let pendingNav = null;
-let finishedNav = null;
-let pendingList = null;
-let finishedList = null;
-let todoInput = null;
-
 // greeting based on current time
 let greetText = null;
 
@@ -30,6 +21,20 @@ let resetModalContainer = null;
 let resetModalSubmit = null;
 let resetModalCancel = null;
 
+// todo
+let todoContainer = null;
+let pendingNav = null;
+let finishedNav = null;
+let pendingList = null;
+let finishedList = null;
+let todoInput = null;
+let todoInputAddBtn = null;
+/********************************************************/
+
+let pendingId = 0;
+let finishedId = 0;
+let pendingTodo = [];
+let finishedTodo = [];
 
 export const runScript = () => {
     body = document.getElementsByTagName("body")[0];
@@ -50,6 +55,7 @@ export const runScript = () => {
     pendingList = document.getElementById("pending-list");
     finishedList = document.getElementById("finished-list");
     todoInput = document.getElementById("todo-input");
+    todoInputAddBtn = document.getElementById("todo-add-btn");
     
     updateCurrentTime();
     generateRandomBgImage();
@@ -83,6 +89,12 @@ const addEventListeners = () => {
         pendingNav.classList.remove("fill");
         finishedNav.classList.add("fill");
     });
+    todoInput.addEventListener("keyup", e => {
+        if(e.key === "Enter"){
+            addTodoTask();
+        }
+    });
+    todoInputAddBtn.addEventListener("click", addTodoTask);
 
     // window events
     window.addEventListener("keyup", e => {
@@ -99,6 +111,16 @@ const addEventListeners = () => {
     });
 
 
+};
+
+// add a todo task to pending list
+const addTodoTask = () => {
+    const text = todoInput.value;
+    todoInput.value = "";
+    if(text){
+        const ul = pendingList.children[0];
+        ul.innerHTML += `<li>${text}</li>`
+    }
 };
 
 // reset local storage
