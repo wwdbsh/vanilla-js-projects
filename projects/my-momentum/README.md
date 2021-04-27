@@ -12,5 +12,7 @@ Create fancy UI to make a list of tasks to do
 - Fetch cached data in local storage
 - Fancy animation effects
 - Key events (enter, escape)
+- Move todo tasks to finished from pending or to pending from finished
+- Delete todo tasks
 
 [Check Demo](https://wwdbsh.github.io/vanilla-js-projects/projects/my-momentum/)

@@ -31,6 +31,7 @@ let todoInput = null;
 let todoInputAddBtn = null;
 /********************************************************/
 
+// variables for todo
 let pendingId = 0;
 let finishedId = 0;
 let pendingTodo = [];
@@ -61,6 +62,7 @@ export const runScript = () => {
     generateRandomBgImage();
     checkRegisteredUser();
     addEventListeners(); // add events
+    loadTodos();
 };
 
 // add events
@@ -90,11 +92,19 @@ const addEventListeners = () => {
         finishedNav.classList.add("fill");
     });
     todoInput.addEventListener("keyup", e => {
-        if(e.key === "Enter"){
-            addTodoTask();
+        if(e.target.value && e.key === "Enter"){
+            const text = e.target.value;
+            e.target.value = "";
+            addTodoTask("pending", text);
         }
     });
-    todoInputAddBtn.addEventListener("click", addTodoTask);
+    todoInputAddBtn.addEventListener("click", () => {
+        if(todoInput.value){
+            const text = todoInput.value;
+            todoInput.value = "";
+            addTodoTask("pending", text);
+        }
+    });
 
     // window events
     window.addEventListener("keyup", e => {
@@ -118,19 +128,71 @@ const loadTodos = () => {
     localStorage.clear();
     if(loadedPending !== null){
         const parsedPending = JSON.parse(loadedPending);
-        parsedPending.forEach((todo) => {
-            paintTodo("pending", todo.text);
+        parsedPending.forEach(todo => {
+            addTodoTask("pending", todo.text);
             pendingId = Math.max(pendingId, parseInt(todo.id, 10));
         });
     }
     if(loadedFinished !== null){
         const parsedFinished = JSON.parse(loadedFinished);
-        parsedFinished.forEach((todo) => {
-            paintTodo("finished", todo.text);
+        parsedFinished.forEach(todo => {
+            addTodoTask("finished", todo.text);
             finishedId = Math.max(finishedId, parseInt(todo.id, 10));
         });
     }
 };
+
+// save todo tasks into local storage
+const saveTodos = type => {
+    if(type === "pending"){
+        localStorage.setItem(type, JSON.stringify(pendingTodo));
+    }else{
+        localStorage.setItem(type, JSON.stringify(finishedTodo));
+    }
+};
+
+// add a todo task
+const addTodoTask = (type, text) => {
+    const item = document.createElement("li");
+    let newId = null;
+    if(type === "finished"){
+      newId = finishedId + 1;
+      finishedId++;
+    }else{
+      newId = pendingId + 1;
+      pendingId++;
+    }
+    item.id = newId;
+  
+    const textBox = document.createElement("span");
+    textBox.innerText = text + " ";
+    item.appendChild(textBox);
+  
+    const delBtn = document.createElement("button");
+    delBtn.innerText = "❌";
+    item.appendChild(delBtn);
+  
+    const subBtn = document.createElement("button");
+    type === "pending" ? (subBtn.innerText = "✅") : (subBtn.innerText = "🔙");
+    item.appendChild(subBtn);
+  
+    delBtn.addEventListener("click", deleteItem);
+    subBtn.addEventListener("click", move);
+  
+    const todoObj = {
+      text:text,
+      id:newId
+    };
+    if(type === "finished"){
+      finishedTodo.push(todoObj);
+      finishedList.childNodes[0].appendChild(item);
+    }else{
+      pendingTodo.push(todoObj);
+      pendingList.childNodes[0].appendChild(item);
+    }
+    saveTodos(type);
+    return item;
+  };
 
 // move function (pending => finished, finished => pending)
 const move = (e) => {
@@ -140,9 +202,9 @@ const move = (e) => {
     const parent = ul.parentNode;
     deleteItem(e);
     if(parent.className === "pending-list"){
-        paintTodo("finished", text);
+        addTodoTask("finished", text);
     }else{
-        paintTodo("pending", text);
+        addTodoTask("pending", text);
     }
 };
   
@@ -159,16 +221,6 @@ const deleteItem = (e) => {
     }else{
         finishedTodo = cleanTodos(finishedTodo, li);
         saveTodos("finished");
-    }
-};
-
-// add a todo task to pending list
-const addTodoTask = () => {
-    const text = todoInput.value;
-    todoInput.value = "";
-    if(text){
-        const ul = pendingList.children[0];
-        ul.innerHTML += `<li>${text}</li>`
     }
 };
 
