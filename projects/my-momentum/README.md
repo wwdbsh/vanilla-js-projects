@@ -8,7 +8,7 @@ Create fancy UI to make a list of tasks to do
 - Generate a random background image
 - Generate a random proverb with mouse over event
 - Create modals to register a user, to ask reset
-- Register a user with local storage
+- Store a user and todo tasks in local storage
 - Fetch cached data in local storage
 - Fancy animation effects
 - Key events (enter, escape)

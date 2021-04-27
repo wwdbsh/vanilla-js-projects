@@ -202,7 +202,7 @@ const move = (e) => {
     const ul = li.parentNode;
     const parent = ul.parentNode;
     deleteItem(e);
-    if(parent.className === "pending-list"){
+    if(parent.id === "pending-list"){
         addTodoTask("finished", text);
     }else{
         addTodoTask("pending", text);
@@ -216,7 +216,8 @@ const deleteItem = (e) => {
     const parent = ul.parentNode;
     ul.removeChild(li);
     const cleanTodos = list => list.filter(todo => todo.id !== parseInt(li.id, 10));
-    if(parent.className === "pending-list"){
+    console.log(parent);
+    if(parent.id === "pending-list"){
         pendingTodo = cleanTodos(pendingTodo, li);
         saveTodos("pending");
     }else{
