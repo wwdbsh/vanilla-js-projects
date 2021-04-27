@@ -109,8 +109,57 @@ const addEventListeners = () => {
             }
         }
     });
+};
 
+// load todo list
+const loadTodos = () => {
+    const loadedPending = localStorage.getItem("pending");
+    const loadedFinished = localStorage.getItem("finished");
+    localStorage.clear();
+    if(loadedPending !== null){
+        const parsedPending = JSON.parse(loadedPending);
+        parsedPending.forEach((todo) => {
+            paintTodo("pending", todo.text);
+            pendingId = Math.max(pendingId, parseInt(todo.id, 10));
+        });
+    }
+    if(loadedFinished !== null){
+        const parsedFinished = JSON.parse(loadedFinished);
+        parsedFinished.forEach((todo) => {
+            paintTodo("finished", todo.text);
+            finishedId = Math.max(finishedId, parseInt(todo.id, 10));
+        });
+    }
+};
 
+// move function (pending => finished, finished => pending)
+const move = (e) => {
+    const text = li.children[0].innerText;
+    const li = e.target.parentNode;
+    const ul = li.parentNode;
+    const parent = ul.parentNode;
+    deleteItem(e);
+    if(parent.className === "pending-list"){
+        paintTodo("finished", text);
+    }else{
+        paintTodo("pending", text);
+    }
+};
+  
+// delete function
+const deleteItem = (e) => {
+    const li = e.target.parentNode;
+    const ul = li.parentNode;
+    const parent = ul.parentNode;
+    ul.removeChild(li);
+    const cleanTodos = list => list.filter(todo => todo.id !== parseInt(li.id, 10));
+    if(parent.className === "pending-list"){
+        pendingTodo = cleanTodos(pendingTodo, li);
+        saveTodos("pending");
+    }else{
+        finishedTodo = cleanTodos(finishedTodo, li);
+        saveTodos("finished");
+    }
 };
 
 // add a todo task to pending list
