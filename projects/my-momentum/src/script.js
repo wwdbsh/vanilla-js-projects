@@ -196,9 +196,9 @@ const addTodoTask = (type, text) => {
   };
 
 // move function (pending => finished, finished => pending)
-const move = (e) => {
-    const text = li.children[0].innerText;
+const move = e => {
     const li = e.target.parentNode;
+    const text = li.children[0].innerText;
     const ul = li.parentNode;
     const parent = ul.parentNode;
     deleteItem(e);
@@ -210,13 +210,12 @@ const move = (e) => {
 };
   
 // delete function
-const deleteItem = (e) => {
+const deleteItem = e => {
     const li = e.target.parentNode;
     const ul = li.parentNode;
     const parent = ul.parentNode;
     ul.removeChild(li);
     const cleanTodos = list => list.filter(todo => todo.id !== parseInt(li.id, 10));
-    console.log(parent);
     if(parent.id === "pending-list"){
         pendingTodo = cleanTodos(pendingTodo, li);
         saveTodos("pending");
