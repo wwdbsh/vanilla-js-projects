@@ -125,7 +125,8 @@ const addEventListeners = () => {
 const loadTodos = () => {
     const loadedPending = localStorage.getItem("pending");
     const loadedFinished = localStorage.getItem("finished");
-    localStorage.clear();
+    localStorage.removeItem("pending");
+    localStorage.removeItem("finished");
     if(loadedPending !== null){
         const parsedPending = JSON.parse(loadedPending);
         parsedPending.forEach(todo => {
