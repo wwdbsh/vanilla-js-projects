@@ -229,6 +229,8 @@ const deleteItem = e => {
 const resetLocalStorage = () => {
     localStorage.clear();
     innerGreet.innerText = "";
+    pendingList.childNodes[0].innerHTML = "";
+    finishedList.childNodes[0].innerHTML = "";
     resetBtn.classList.remove("show");
     todoBtn.classList.remove("show");
     todoContainer.classList.remove("show");
