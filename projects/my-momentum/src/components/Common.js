@@ -39,3 +39,5 @@ export const PROVERBS_COLLECTION = [
     "Wisely, and slow"
 ];
 
+export const API_KEY = "1e2f0f73dd343d468bf171bb08970d5f";
+

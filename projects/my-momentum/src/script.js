@@ -69,6 +69,7 @@ export const runScript = () => {
     checkRegisteredUser();
     addEventListeners(); // add events
     loadTodos();
+    loadCoords();
 };
 
 // add events
@@ -135,6 +136,39 @@ const addEventListeners = () => {
             }
         }
     });
+};
+
+// load coordinate
+const loadCoords = () => {
+    const loadedCoords = localStorage.getItem("coords");
+    if(loadedCoords === null){
+        askForCoords();
+    }else{
+
+    }
+};
+
+const saveCoords = coordsObj => {
+    localStorage.setItem("coords", JSON.stringify(coordsObj));
+};
+
+const handleGeoSuccess = position => {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    const coordsObj = {
+        latitude,
+        longitude,
+    };
+    saveCoords(coordsObj);
+};
+
+const handleGeoError = () => {
+    console.log("Can't access geo location");
+};
+
+// ask coordinates
+const askForCoords = () => {
+    navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
 };
 
 // load todo list
