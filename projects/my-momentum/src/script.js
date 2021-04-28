@@ -201,12 +201,13 @@ const move = e => {
     const text = li.children[0].innerText;
     const ul = li.parentNode;
     const parent = ul.parentNode;
-    deleteItem(e);
     if(parent.id === "pending-list"){
+        li.classList.add("move-to-finished");
         addTodoTask("finished", text);
     }else{
         addTodoTask("pending", text);
     }
+    setTimeout(()=> deleteItem(e), 1000);
 };
   
 // delete function

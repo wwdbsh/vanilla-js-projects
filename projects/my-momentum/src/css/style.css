@@ -286,10 +286,12 @@ body *{
     display:none;
 }
 
+::-webkit-scrollbar-thumb{
+    background: rgba(0, 0, 0, 0.3);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.5);
-    animation-name:showelement;
-    animation-duration: 1s;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .pending-list ul,
@@ -302,6 +304,18 @@ body *{
 ul li{
     margin-bottom: 5px;
     overflow-x:auto;
+}
+
+li i{
+    margin-left:5px;
+    cursor:pointer;
+}
+
+.move-to-finished{
+    text-decoration: line-through;
+    animation-name:hideelement;
+    animation-delay: 0.2s;
+    animation-duration:0.8s
 }
 
 /************************LIST BOX**************************/
@@ -422,7 +436,7 @@ ul li{
     }
 }
 
-@keyframes hidebutton {
+@keyframes hideelement {
     from{
         opacity:1;
     }
