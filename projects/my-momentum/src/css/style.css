@@ -191,6 +191,45 @@ body *{
     outline: none;
 }
 
+.main-task-container{
+    margin-top:30px;
+}
+
+.main-task-input-container{
+    display:none;
+}
+
+.main-task-input-container.show{
+    display:block;
+    animation: showelement .5s;
+}
+
+#main-task-question{
+    font-size:35px;
+    font-weight:200;
+    width:100%;
+    color:rgba(255, 255, 255, 0.9);
+    margin:40px 0 20px 0;
+    letter-spacing: 1px;
+}
+
+.main-task-input{
+    margin-top:20px;
+    font-size:30px;
+    background-color: transparent;
+    border:0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);;
+    width:90%;
+    color:rgba(255, 255, 255, 0.9);
+    transform: scale(1);
+}
+
+.main-task-input:focus,
+.main-task-input:hover{
+    outline:none;
+    transform: scale(1.05);
+}
+
 .todo-container{
     position:absolute;
     overflow:hidden;
@@ -305,6 +344,8 @@ body *{
 ul li{
     margin-bottom: 5px;
     overflow-x:auto;
+    animation:showelement;
+    animation-duration:0.5s;
 }
 
 li i{
@@ -315,15 +356,15 @@ li i{
 .move-to-finished{
     text-decoration:line-through;
     transform:translateX(120%);
-    transition:transform 1s ease-in-out;
-    transition-delay: 0.5s;
+    transition:transform .9s ease-in-out;
+    transition-delay: 0.3s;
 }
 
 .move-to-pending{
     text-decoration: none;
     transform:translateX(-110%);
-    transition:transform 1s ease-in-out;
-    transition-delay: 0.5s;
+    transition:transform .9s ease-in-out;
+    transition-delay: 0.3s;
 }
 
 .deleted{

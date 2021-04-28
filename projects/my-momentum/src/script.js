@@ -16,6 +16,10 @@ let nameModalBtn = null;
 // greeting based on current time
 let greetText = null;
 
+// main task
+let mainTaskInputContainer = null;
+let mainTaskInput = null;
+
 // reset modal
 let resetModalContainer = null;
 let resetModalSubmit = null;
@@ -57,6 +61,8 @@ export const runScript = () => {
     finishedList = document.getElementById("finished-list");
     todoInput = document.getElementById("todo-input");
     todoInputAddBtn = document.getElementById("todo-add-btn");
+    mainTaskInputContainer = document.getElementById("main-task-input-container");
+    mainTaskInput = document.getElementById("main-task-input");
     
     updateCurrentTime();
     generateRandomBgImage();
@@ -103,6 +109,16 @@ const addEventListeners = () => {
             const text = todoInput.value;
             todoInput.value = "";
             addTodoTask("pending", text);
+        }
+    });
+
+    // main task
+    mainTaskInput.addEventListener("keyup", e => {
+        if(e.target.value && e.key === "Enter"){
+            const task = e.target.value;
+            e.target.value = "";
+            mainTaskInputContainer.classList.remove("show");
+            addTodoTask("pending", task);
         }
     });
 
@@ -212,7 +228,7 @@ const move = e => {
         li.classList.add("move-to-pending");
         addTodoTask("pending", text);
     }
-    setTimeout(()=> deleteItem(e), 1500);
+    setTimeout(()=> deleteItem(e), 1200);
 };
   
 // delete function
