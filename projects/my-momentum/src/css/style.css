@@ -243,6 +243,7 @@ body *{
 .pending-list,
 .finished-list{
     overflow:auto;
+    overflow-x:hidden;
     position:absolute;
     color:rgba(255, 255, 255, 0.8);
     height:320px;
@@ -312,10 +313,22 @@ li i{
 }
 
 .move-to-finished{
-    text-decoration: line-through;
-    animation-name:hideelement;
-    animation-delay: 0.2s;
-    animation-duration:0.8s
+    text-decoration:line-through;
+    transform:translateX(120%);
+    transition:transform 1s ease-in-out;
+    transition-delay: 0.5s;
+}
+
+.move-to-pending{
+    text-decoration: none;
+    transform:translateX(-110%);
+    transition:transform 1s ease-in-out;
+    transition-delay: 0.5s;
+}
+
+.deleted{
+    animation: hideelement;
+    animation-duration: 1s;
 }
 
 /************************LIST BOX**************************/

@@ -177,7 +177,11 @@ const addTodoTask = (type, text) => {
     type === "pending" ? (subBtn.className = "fa fa-check") : (subBtn.className = "fa fa-refresh");
     item.appendChild(subBtn);
   
-    delBtn.addEventListener("click", deleteItem);
+    delBtn.addEventListener("click", e => {
+        const li = e.target.parentNode;
+        li.classList.add("deleted");
+        setTimeout(() => deleteItem(e), 1000);
+    });
     subBtn.addEventListener("click", move);
   
     const todoObj = {
@@ -205,9 +209,10 @@ const move = e => {
         li.classList.add("move-to-finished");
         addTodoTask("finished", text);
     }else{
+        li.classList.add("move-to-pending");
         addTodoTask("pending", text);
     }
-    setTimeout(()=> deleteItem(e), 1000);
+    setTimeout(()=> deleteItem(e), 1500);
 };
   
 // delete function
