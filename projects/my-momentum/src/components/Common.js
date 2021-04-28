@@ -41,3 +41,14 @@ export const PROVERBS_COLLECTION = [
 
 export const API_KEY = "1e2f0f73dd343d468bf171bb08970d5f";
 
+export const WEATHER_ICONS = {
+    "01":"fas fa-sun",
+    "02":"fas fa-cloud-sun",
+    "03":"fas fa-cloud",
+    "04":"fas fa-cloud-meatball",
+    "09":"fas fa-cloud-sun-rain",
+    "10":"fas fa-cloud-showers-heavy",
+    "11":"fas fa-poo-storm",
+    "13":"far fa-snowflake",
+    "50":"fas fa-smog"
+};

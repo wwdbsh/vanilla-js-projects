@@ -14,5 +14,6 @@ Create fancy UI to make a list of tasks to do
 - Key events (enter, escape)
 - Move todo tasks to finished from pending or to pending from finished
 - Delete todo tasks
+- Show local weather
 
 [Check Demo](https://wwdbsh.github.io/vanilla-js-projects/projects/my-momentum/)

@@ -454,6 +454,31 @@ li i{
     border-radius:100px;
 }
 
+/************************WEATHER BOX**************************/
+.weather-container{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:25px;
+    right:35px;
+    cursor:context-menu;
+    color:rgba(255, 255, 255, 0.9);
+}
+
+.weather-upper{
+    font-size:26px;
+    text-align: center;
+}
+
+.weather-lower{
+    font-size:22px;
+}
+
+.weather-temp{
+    margin-left:6px;
+}
+/************************WEATHER BOX**************************/
+
 @media (max-width:620px){
     .clock{
         font-size:130px;

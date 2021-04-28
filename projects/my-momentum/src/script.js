@@ -1,4 +1,4 @@
-import { BACKGROUND_IMAGES, GREETING_EXPR, PROVERBS_COLLECTION } from "./components/Common.js";
+import { API_KEY, BACKGROUND_IMAGES, GREETING_EXPR, PROVERBS_COLLECTION, WEATHER_ICONS } from "./components/Common.js";
 /**********************DOM ELEMENTS**********************/
 let body = null; // body
 let clock = null; // clock
@@ -24,6 +24,10 @@ let mainTaskInput = null;
 let resetModalContainer = null;
 let resetModalSubmit = null;
 let resetModalCancel = null;
+
+// weather
+let weatherRegion = null;
+let weatherUpper = null;
 
 // todo
 let todoContainer = null;
@@ -63,6 +67,8 @@ export const runScript = () => {
     todoInputAddBtn = document.getElementById("todo-add-btn");
     mainTaskInputContainer = document.getElementById("main-task-input-container");
     mainTaskInput = document.getElementById("main-task-input");
+    weatherRegion = document.getElementById("weather-region");
+    weatherUpper = document.getElementById("weather-upper");
     
     updateCurrentTime();
     generateRandomBgImage();
@@ -144,12 +150,38 @@ const loadCoords = () => {
     if(loadedCoords === null){
         askForCoords();
     }else{
-
+        const parsedCoords = JSON.parse(loadedCoords);
+        getWeather(parsedCoords.latitude, parsedCoords.longitude);
     }
 };
 
 const saveCoords = coordsObj => {
     localStorage.setItem("coords", JSON.stringify(coordsObj));
+};
+
+const getWeather = async (lat, lng) => {
+    const data = await (await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`)).json();
+    const temp = data.main.temp;
+    const region = data.name;
+    const code = data.weather[0].icon.substr(0, 2);
+    // const country = data.sys.country;
+    // const weather = data.weather[0].main;
+    // const windDeg = data.wind.deg;
+    // const windSpeed = data.wind.speed;
+    weatherUpper.innerHTML = "";
+    const icon = document.createElement("i");
+    icon.className = WEATHER_ICONS[code];
+    icon.id = "weather-icon";
+    weatherUpper.appendChild(icon);
+
+    const temperature = document.createElement("span");
+    temperature.className = "weather-temp";
+    temperature.id = "weather-temp";
+    temperature.innerText = Math.floor(temp) + 'º';
+    weatherUpper.appendChild(temperature);
+
+    weatherRegion.innerText = region.toLowerCase();
+    // console.log(data);
 };
 
 const handleGeoSuccess = position => {
@@ -160,6 +192,7 @@ const handleGeoSuccess = position => {
         longitude,
     };
     saveCoords(coordsObj);
+    getWeather(latitude, longitude);
 };
 
 const handleGeoError = () => {
@@ -356,3 +389,7 @@ const updateCurrentTime = () => {
 setInterval(() => {
     updateCurrentTime();
 }, 1000);
+
+setInterval(() => {
+    getWeather();
+}, 60000*30);

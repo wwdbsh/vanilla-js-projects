@@ -5,10 +5,13 @@ import Greeting from "./components/Greeting.js";
 import MainTask from "./components/MainTask.js";
 import NameModal from "./components/NameModal.js";
 import TodoBox from "./components/TodoBox.js";
+import WeatherContainer from "./components/WeatherContainer.js";
 import { runScript } from "./script.js";
 
 export default class App{
     constructor($target){
+        const weatherContainer = new WeatherContainer({$target});
+        
         const clockContainer = new Clock({$target});
         clockContainer.setState({className:"clock-container"});
 
