@@ -169,12 +169,12 @@ const addTodoTask = (type, text) => {
     textBox.innerText = text + " ";
     item.appendChild(textBox);
   
-    const delBtn = document.createElement("button");
-    delBtn.innerText = "❌";
+    const delBtn = document.createElement("i");
+    delBtn.className = "fa fa-times";
     item.appendChild(delBtn);
   
-    const subBtn = document.createElement("button");
-    type === "pending" ? (subBtn.innerText = "✅") : (subBtn.innerText = "🔙");
+    const subBtn = document.createElement("i");
+    type === "pending" ? (subBtn.className = "fa fa-check") : (subBtn.className = "fa fa-refresh");
     item.appendChild(subBtn);
   
     delBtn.addEventListener("click", deleteItem);
