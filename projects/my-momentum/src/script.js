@@ -18,7 +18,9 @@ let greetText = null;
 
 // main task
 let mainTaskInputContainer = null;
+let mainTaskResultContainer = null;
 let mainTaskInput = null;
+let mainTask = null;
 
 // reset modal
 let resetModalContainer = null;
@@ -45,6 +47,9 @@ let finishedId = 0;
 let pendingTodo = [];
 let finishedTodo = [];
 
+let mainTaskId = -1;
+let mainTaskFlag = false;
+
 export const runScript = () => {
     body = document.getElementsByTagName("body")[0];
     clock = document.getElementById("clock");
@@ -66,7 +71,9 @@ export const runScript = () => {
     todoInput = document.getElementById("todo-input");
     todoInputAddBtn = document.getElementById("todo-add-btn");
     mainTaskInputContainer = document.getElementById("main-task-input-container");
+    mainTaskResultContainer = document.getElementById("main-task-result-container");
     mainTaskInput = document.getElementById("main-task-input");
+    mainTask = document.getElementById("main-task-text");
     weatherRegion = document.getElementById("weather-region");
     weatherUpper = document.getElementById("weather-upper");
     
@@ -125,6 +132,10 @@ const addEventListeners = () => {
             const task = e.target.value;
             e.target.value = "";
             mainTaskInputContainer.classList.remove("show");
+            mainTask.innerText = task;
+            mainTaskResultContainer.classList.add("show");
+            mainTaskId = pendingId + 1;
+            mainTaskFlag = true;
             addTodoTask("pending", task);
         }
     });
@@ -140,6 +151,11 @@ const addEventListeners = () => {
             if(e.key === "Escape"){
                 resetModalContainer.classList.remove("show-modal");
             }
+        }
+    });
+    window.addEventListener("keydown", e => {
+        if(e.key === "Tab"){
+            e.preventDefault();
         }
     });
 };
@@ -164,10 +180,6 @@ const getWeather = async (lat, lng) => {
     const temp = data.main.temp;
     const region = data.name;
     const code = data.weather[0].icon.substr(0, 2);
-    // const country = data.sys.country;
-    // const weather = data.weather[0].main;
-    // const windDeg = data.wind.deg;
-    // const windSpeed = data.wind.speed;
     weatherUpper.innerHTML = "";
     const icon = document.createElement("i");
     icon.className = WEATHER_ICONS[code];
@@ -181,7 +193,6 @@ const getWeather = async (lat, lng) => {
     weatherUpper.appendChild(temperature);
 
     weatherRegion.innerText = region.toLowerCase();
-    // console.log(data);
 };
 
 const handleGeoSuccess = position => {
@@ -208,8 +219,20 @@ const askForCoords = () => {
 const loadTodos = () => {
     const loadedPending = localStorage.getItem("pending");
     const loadedFinished = localStorage.getItem("finished");
+    const loadedMainTaskLi = localStorage.getItem("main-task-li");
     localStorage.removeItem("pending");
     localStorage.removeItem("finished");
+    localStorage.removeItem("main-task-li");
+    if(loadedMainTaskLi !== null){
+        const parsedMainTaskLi = JSON.parse(loadedMainTaskLi);
+        mainTaskInputContainer.classList.remove("show");
+        mainTask.innerText = parsedMainTaskLi.todoObj.text;
+        mainTaskResultContainer.classList.add("show");
+        mainTaskId = parsedMainTaskLi.todoObj.id;
+        mainTaskFlag = true;
+        addTodoTask("pending", parsedMainTaskLi.todoObj.text);
+        pendingId = Math.max(pendingId, parseInt(parsedMainTaskLi.todoObj.id, 10));
+    }
     if(loadedPending !== null){
         const parsedPending = JSON.parse(loadedPending);
         parsedPending.forEach(todo => {
@@ -263,6 +286,17 @@ const addTodoTask = (type, text) => {
     delBtn.addEventListener("click", e => {
         const li = e.target.parentNode;
         li.classList.add("deleted");
+        if(type === "pending"){
+            if(li.className.includes("main-task-item")){
+                localStorage.removeItem("main-task-li")
+                mainTask.classList.add("del");
+            }
+            pendingTodo = cleanTodos(pendingTodo, li);
+            saveTodos("pending");
+        }else{
+            finishedTodo = cleanTodos(finishedTodo, li);
+            saveTodos("finished");
+        }
         setTimeout(() => deleteItem(e), 1000);
     });
     subBtn.addEventListener("click", move);
@@ -275,7 +309,13 @@ const addTodoTask = (type, text) => {
       finishedTodo.push(todoObj);
       finishedList.childNodes[0].appendChild(item);
     }else{
-      pendingTodo.push(todoObj);
+      if(mainTaskFlag){
+        item.className = "main-task-item";
+        localStorage.setItem("main-task-li", JSON.stringify({main:true, todoObj}));
+        mainTaskFlag = false;
+      }else{
+          pendingTodo.push(todoObj);
+      }
       pendingList.childNodes[0].appendChild(item);
     }
     saveTodos(type);
@@ -291,26 +331,37 @@ const move = e => {
     if(parent.id === "pending-list"){
         li.classList.add("move-to-finished");
         addTodoTask("finished", text);
+        if(li.className.includes("main-task-item")){
+            localStorage.removeItem("main-task-li")
+            mainTask.classList.add("del");
+        }
+        pendingTodo = cleanTodos(pendingTodo, li);
+        saveTodos("pending");
     }else{
         li.classList.add("move-to-pending");
         addTodoTask("pending", text);
+        finishedTodo = cleanTodos(finishedTodo, li);
+        saveTodos("finished");
     }
     setTimeout(()=> deleteItem(e), 1200);
 };
   
+const cleanTodos = (list, li) => list.filter(todo => todo.id !== parseInt(li.id, 10));
+
 // delete function
 const deleteItem = e => {
     const li = e.target.parentNode;
     const ul = li.parentNode;
     const parent = ul.parentNode;
     ul.removeChild(li);
-    const cleanTodos = list => list.filter(todo => todo.id !== parseInt(li.id, 10));
     if(parent.id === "pending-list"){
-        pendingTodo = cleanTodos(pendingTodo, li);
-        saveTodos("pending");
-    }else{
-        finishedTodo = cleanTodos(finishedTodo, li);
-        saveTodos("finished");
+        if(li.className.includes("main-task-item")){
+            mainTaskResultContainer.classList.remove("show");
+            mainTaskInputContainer.classList.add("show");
+            mainTask.classList.remove("del");
+            mainTask.innerText = "";
+            mainTaskId = -1;
+        }
     }
 };
 
@@ -320,11 +371,15 @@ const resetLocalStorage = () => {
     innerGreet.innerText = "";
     pendingList.childNodes[0].innerHTML = "";
     finishedList.childNodes[0].innerHTML = "";
+    mainTask.innerText = "";
+    mainTaskId = -1;
     resetBtn.classList.remove("show");
     todoBtn.classList.remove("show");
     todoContainer.classList.remove("show");
     resetModalContainer.classList.remove("show-modal");
     nameModalContainer.classList.add("show-modal");
+    mainTaskInputContainer.classList.add("show");
+    mainTaskResultContainer.classList.remove("show");
 };
 
 // check if a user is registered

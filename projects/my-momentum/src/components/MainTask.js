@@ -21,12 +21,20 @@ export default class MainTask{
         input.id = "main-task-input";
         inputContainer.appendChild(input);
 
-        const resultContainer = document.createElement("div");;
+        const resultContainer = document.createElement("div");
+        resultContainer.className = "main-task-result-container";
+        resultContainer.id = "main-task-result-container";
+        $target.appendChild(resultContainer);
+
+        const today = document.createElement("h3");
+        today.className = "main-task-today";
+        today.id = "main-task-today";
+        today.innerText = "Today";
+        resultContainer.appendChild(today);
 
         const mainTask = document.createElement("div");
         mainTask.className = "main-task-text";
-        mainTask.className = "main-task-text";
-
-        // const input
+        mainTask.id = "main-task-text";
+        resultContainer.appendChild(mainTask);
     }
 }
