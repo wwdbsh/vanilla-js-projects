@@ -176,7 +176,7 @@ const saveCoords = coordsObj => {
 };
 
 const getWeather = async (lat, lng) => {
-    const data = await (await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`)).json();
+    const data = await (await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`)).json();
     const temp = data.main.temp;
     const region = data.name;
     const code = data.weather[0].icon.substr(0, 2);
