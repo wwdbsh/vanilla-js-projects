@@ -380,6 +380,8 @@ const resetLocalStorage = () => {
     nameModalContainer.classList.add("show-modal");
     mainTaskInputContainer.classList.add("show");
     mainTaskResultContainer.classList.remove("show");
+    pendingTodo = [];
+    finishedTodo = [];
 };
 
 // check if a user is registered
