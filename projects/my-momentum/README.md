@@ -11,7 +11,7 @@ Create fancy UI to make a list of tasks to do
 - Store a user and todo tasks in local storage
 - Fetch cached data in local storage
 - Fancy animation effects
-- Key events (enter, escape)
+- Key events (enter, escape, tab)
 - Move todo tasks to finished from pending or to pending from finished
 - Delete todo tasks
 - Show local weather
