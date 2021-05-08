@@ -5,20 +5,59 @@
 }
 
 body{
-    background-color: #1d293a;
+    background-color: hsl(215, 33%, 17%, 0.94);
     font-family:"Lato", sans-serif;
     color:#fff;
     margin:0;
+    overflow:hidden;
 }
 
 #app{
-    display:flex;
+    display:none;
     flex-direction:column;
     align-items:center;
     justify-content:center;
     width:100%;
     height:100vh;
+    animation-name:showelement;
+    animation-duration: 1s;
 }
+
+#app.show{
+    display:flex;
+}
+
+#disconnect-btn{
+    background-color:rgba(0, 0, 0, 0.4);
+    border-radius:50px;
+    font-size:13px;
+    padding:13px;
+    cursor:pointer;
+}
+
+#disconnect-btn:active{
+    transform:scale(0.98);
+}
+
+/*************USER LIST*************/
+.user-list{
+    background-color:rgba(0, 0, 0, 0.4);
+    letter-spacing: 3PX;
+    font-weight: 600;
+    list-style: none;
+    text-align:center;
+    padding:20px;
+    margin-bottom:15px;
+    margin-left:10px;
+    border-radius:5px;
+}
+
+.user-list li{
+    font-weight:500;
+    font-size:15px;
+    margin-top:5px;
+}
+/***********************************/
 
 /************CALCULATOR************/
 .cal{
@@ -27,6 +66,7 @@ body{
     font-size:25px;
     width:260px;
     height:400px;
+    margin-top:15px;
 }
 
 .cal-row.cal-display{
@@ -54,8 +94,14 @@ body{
     border-radius:3px;
 }
 
-.cal-btn:active{
+.cal-btn:hover{
+    animation-name: changebtncolor;
+    animation-duration:.4s;
     background-color:#6C63FF;
+}
+
+.cal-btn:active{
+    transform:scale(0.96);
 }
 
 .cal-btn.digit{
@@ -65,5 +111,39 @@ body{
 #zero-btn{
     width:120px;
 }
-
 /**********************************/
+
+/************LOG BOARD************/
+.log-board{
+    background-color:rgba(0, 0, 0, 0.3);
+    border-radius:5px;
+    height:300px;
+    width:250px;
+    font-size:14px;
+    list-style: none;
+    padding:5px 10px 5px 10px;
+    margin:0 0 0 10px;
+}
+
+.log-board li{
+    margin-bottom:5px;
+}
+/*********************************/
+
+@keyframes changebtncolor{
+    from{
+        background-color:#354357;
+    }
+    to{
+        background-color:#6C63FF;
+    }
+}
+
+@keyframes showelement{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
