@@ -13,7 +13,7 @@ export default class Calculator{
         this.container.appendChild(calculator);
 
         const display = document.createElement("div");
-        display.className = "cal-display";
+        display.className = "cal-row cal-display";
         display.id = "cal-display";
         calculator.appendChild(display);
 
@@ -31,7 +31,7 @@ export default class Calculator{
         const row1Btn2 = new CalBtn({$target:row1});
         row1Btn2.setState({
             className:"cal-btn",
-            innerText:"DEL",
+            innerText:"del",
             id:"del-btn"
         });
         const row1Btn3 = new CalBtn({$target:row1});
