@@ -19,6 +19,7 @@ const clickConnectBtn = () => {
         if(g.userList.includes(name)){
             alert(`"${name}" has already used by another user.\nPlease try other one.`);
         }else{
+            g.me = name;
             g.userList.push(name);
             g.connectModalContainer.classList.remove("show");
             updateActiveUserList();

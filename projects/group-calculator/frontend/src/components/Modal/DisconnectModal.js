@@ -2,6 +2,7 @@ export default class DisconnectModal{
     constructor({$target}){
         this.container = document.createElement("div");
         this.container.className = "modal-container";
+        this.container.id = "disconnect-modal-container";
         $target.appendChild(this.container);
 
         const modal = document.createElement("div");
