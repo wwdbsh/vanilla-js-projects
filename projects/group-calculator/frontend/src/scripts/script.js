@@ -1,3 +1,4 @@
+import { calculatorInit } from "./calculator.js";
 import { commFuncInit } from "./commFunc.js";
 import { connectInit } from "./connect.js";
 import { disconnectInit } from "./disconnect.js";
@@ -17,6 +18,9 @@ const global = {
     disconnectYesBtn:null,
     // active user list
     activeUserDisplay:null,
+    // calculator
+    calDisplay:null,
+    calKeys:null,
 };
 
 export const init = () => {
@@ -28,7 +32,10 @@ export const init = () => {
     global.disconnectNoBtn = document.getElementById("no-btn");
     global.disconnectYesBtn = document.getElementById("yes-btn");
     global.activeUserDisplay = document.getElementById("user-list");
+    global.calDisplay = document.getElementById("cal-display");
+    global.calKeys = document.getElementsByClassName("cal-btn");
     commFuncInit(global);
     connectInit(global);
     disconnectInit(global);
+    calculatorInit(global);
 };
