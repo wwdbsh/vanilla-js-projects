@@ -3,6 +3,7 @@ import ConnectionList from "./components/ConnectionList/ConnectionList.js";
 import LogBoard from "./components/LogBoard/LogBoard.js";
 import ConnectModal from "./components/Modal/ConnectModal.js";
 import DisconnectModal from "./components/Modal/DisconnectModal.js";
+import { init } from "./scripts/script.js";
 
 export default class App{
     constructor($target){
@@ -21,5 +22,7 @@ export default class App{
         const calculator = new Calculator({$target});
 
         const logBoard = new LogBoard({$target});
+
+        init();
     }
 }

@@ -1,7 +1,8 @@
  export default class ConnectModal{
      constructor({$target}){
          this.container = document.createElement("div");
-         this.container.className = "modal-container";
+         this.container.className = "modal-container show";
+         this.container.id = "connect-modal-container";
          $target.appendChild(this.container);
 
          const modal = document.createElement("div");

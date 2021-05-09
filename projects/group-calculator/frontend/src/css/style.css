@@ -44,7 +44,7 @@ body{
 /*************MODAL*************/
 .modal-container{
     display:none;
-    background-color:rgba(0,0,0,0.5);
+    background-color:rgba(0,0,0,0.8);
     position:absolute;
     top:0;
     left:0;
@@ -81,7 +81,7 @@ body{
     color:#fff;
     font-size:13px;
     border:1px #fff solid;
-    padding:5px;
+    padding:10px;
 }
 
 .connect-input:focus{
