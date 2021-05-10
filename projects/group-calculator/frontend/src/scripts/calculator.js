@@ -1,3 +1,5 @@
+import { addLog, updateLogBoard } from "./commFunc.js";
+
 let g = null;
 let expression = [];
 let result = null;
@@ -16,20 +18,27 @@ const addEventListeners = () => {
             switch(text){
                 case "AC":
                     clearResult();
-                    g.calDisplay.innerText = "";
                     expression = [];
+                    g.calDisplay.innerText = "";
+                    num = "";
                     break;
                 case "del":
-                    clearResult();
-                    g.calDisplay.innerText = displayText.slice(0, displayText.length-1);
-                    let lastEl = expression[expression.length-1];
-                    expression.pop();
-                    if(!(lastEl.length == 1 && !isDigit(lastEl))){
-                        lastEl = lastEl.slice(0, lastEl.length-1);
-                        if(lastEl){
-                            expression.push(lastEl);
-                        }
-                    }
+                    alert("it's not working. sorry :)");
+                    break;
+                    // clearResult();
+                    // g.calDisplay.innerText = displayText.slice(0, displayText.length-1);
+                    // if(expression.length > 0){
+                    //     let lastEl = expression[expression.length-1];
+                    //     expression.pop();
+                    //     if(!isOp(lastEl)){
+                    //         lastEl = lastEl.slice(0, lastEl.length-1);
+                    //         console.log(lastEl);
+                    //         if(lastEl !== ""){
+                    //             expression.push(lastEl);
+                    //         }
+                    //     }
+                    // }
+                    // break;
                 case "=":
                     if(
                         displayText === "" ||
@@ -39,9 +48,15 @@ const addEventListeners = () => {
                         alert(`can't calcuate with this ${displayText}`);
                     }else{
                         expression.push(num);
-                        num = "";
+                        num = ""; 
                         result = getResult();
                         g.calDisplay.innerText = result;
+                        const logObj = {
+                            log:`<strong>${g.me}</strong>: ${displayText}=${result}`,
+                            createdAt:new Date()
+                        };
+                        addLog(logObj);
+                        updateLogBoard();
                     }
                     break;
                 default: // push into expression
@@ -67,7 +82,7 @@ const addEventListeners = () => {
                         ){
                             alert(`a digit has to be positioned in front of "${text}"\nso, you can't enter it now`);
                         }else{
-                            expression.push(num);
+                            if(num !== "") expression.push(num);
                             expression.push(text);
                             g.calDisplay.innerText += text;
                             num = "";

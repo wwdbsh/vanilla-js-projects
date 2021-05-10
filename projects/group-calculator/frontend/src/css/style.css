@@ -211,6 +211,30 @@ body{
 
 .log-board li{
     margin-bottom:5px;
+    padding-bottom:5px;
+    border-bottom:.5px dotted #fff;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    background:transparent;
+    color:transparent;
+}
+
+::-webkit-scrollbar-corner{
+    display:none;
+}
+
+::-webkit-scrollbar-button{
+    display:none;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
 }
 /*********************************/
 

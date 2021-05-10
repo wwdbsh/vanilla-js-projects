@@ -3,7 +3,7 @@ import { commFuncInit } from "./commFunc.js";
 import { connectInit } from "./connect.js";
 import { disconnectInit } from "./disconnect.js";
 
-const global = {
+const globalObj = {
     me:null,
     userList:[],
     logList:[],
@@ -21,21 +21,23 @@ const global = {
     // calculator
     calDisplay:null,
     calKeys:null,
+    logBoard:null
 };
 
 export const init = () => {
-    global.connectModalContainer = document.getElementById("connect-modal-container");
-    global.connectInput = document.getElementById("connect-input");
-    global.connectBtn = document.getElementById("connect-btn");
-    global.disconnectBtn = document.getElementById("disconnect-btn");
-    global.disconnectModalContainer = document.getElementById("disconnect-modal-container");
-    global.disconnectNoBtn = document.getElementById("no-btn");
-    global.disconnectYesBtn = document.getElementById("yes-btn");
-    global.activeUserDisplay = document.getElementById("user-list");
-    global.calDisplay = document.getElementById("cal-display");
-    global.calKeys = document.getElementsByClassName("cal-btn");
-    commFuncInit(global);
-    connectInit(global);
-    disconnectInit(global);
-    calculatorInit(global);
+    globalObj.connectModalContainer = document.getElementById("connect-modal-container");
+    globalObj.connectInput = document.getElementById("connect-input");
+    globalObj.connectBtn = document.getElementById("connect-btn");
+    globalObj.disconnectBtn = document.getElementById("disconnect-btn");
+    globalObj.disconnectModalContainer = document.getElementById("disconnect-modal-container");
+    globalObj.disconnectNoBtn = document.getElementById("no-btn");
+    globalObj.disconnectYesBtn = document.getElementById("yes-btn");
+    globalObj.activeUserDisplay = document.getElementById("user-list");
+    globalObj.calDisplay = document.getElementById("cal-display");
+    globalObj.calKeys = document.getElementsByClassName("cal-btn");
+    globalObj.logBoard = document.getElementById("log-board");
+    commFuncInit(globalObj);
+    connectInit(globalObj);
+    disconnectInit(globalObj);
+    calculatorInit(globalObj);
 };

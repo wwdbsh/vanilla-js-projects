@@ -1,4 +1,4 @@
-import { updateActiveUserList } from "./commFunc.js";
+import { loadLogs, updateActiveUserList, updateLogBoard } from "./commFunc.js";
 
 let g = null;
 
@@ -22,6 +22,8 @@ const clickConnectBtn = () => {
             g.me = name;
             g.userList.push(name);
             g.connectModalContainer.classList.remove("show");
+            loadLogs();
+            updateLogBoard();
             updateActiveUserList();
         }
     }

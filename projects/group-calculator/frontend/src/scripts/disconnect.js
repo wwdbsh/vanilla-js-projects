@@ -26,6 +26,8 @@ const disconnect = () => {
     updateActiveUserList();
     hideModal();
     g.connectModalContainer.classList.add("show");
+    g.logBoard.innerHTML = "";
+    g.logList = [];
 };
 
 const showModal = () => g.disconnectModalContainer.classList.add("show");
