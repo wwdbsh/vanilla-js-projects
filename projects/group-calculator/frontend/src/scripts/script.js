@@ -23,7 +23,7 @@ const globalObj = {
     calKeys:null,
     logBoard:null,
     // socket
-    socket:io("http://127.0.0.1:4000")
+    socket:io("http://ec2-35-175-234-156.compute-1.amazonaws.com:3000/")
 };
 
 export const init = () => {

@@ -75,7 +75,7 @@ app.use((req, res, next) => {
     next(createError(404));
 });
 
-server.listen(4000, () => {
+server.listen(3000, () => {
     console.log("Server is running");
 });
 
