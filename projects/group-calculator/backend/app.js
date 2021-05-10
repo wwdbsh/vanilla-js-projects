@@ -13,10 +13,11 @@ try{
         console.log("SERVER: connecting to client");
         socket.room = "grp-cal";
 
-        socket.on("adduser", async (username) => {
+        socket.on("adduser", username => {
             console.log("SERVER: responding to adduser");
             if(activeUsers.includes(username)){
                 console.log(`SERVER: "${username}" is already used`);
+                socket.emit("failadduser", username);
                 return;
             }
             socket.username = username;
@@ -26,10 +27,11 @@ try{
             console.log(activeUsers);
             console.log("###########################");
             socket.broadcast.to(socket.room).emit("sendactiveusers", activeUsers);
+            socket.emit("successadduser", username);
             socket.emit("sendactiveusers", activeUsers);
         });
 
-        socket.on("sendlog", async logObj => {
+        socket.on("sendlog", logObj => {
             console.log("SERVER: responding to sendlog");
             io.sockets.in(socket.room).emit("updatelog", logObj);
         });

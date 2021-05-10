@@ -1,5 +1,5 @@
 import { calculatorInit } from "./calculator.js";
-import { addLog, commFuncInit, updateActiveUserList, updateLogBoard } from "./commFunc.js";
+import { addLog, commFuncInit, loadLogs, updateActiveUserList, updateLogBoard } from "./commFunc.js";
 import { connectInit } from "./connect.js";
 import { disconnectInit } from "./disconnect.js";
 
@@ -44,6 +44,16 @@ export const init = () => {
     });
     globalObj.socket.on("updatelog", logObj => {
         addLog(logObj);
+        updateLogBoard();
+    });
+    globalObj.socket.on("failadduser", name => {
+        alert(`"${name}" has already used by another user.\nPlease try other one.`);
+    });
+    globalObj.socket.on("successadduser", name => {
+        globalObj.me = name;
+        globalObj.userList.push(name);
+        globalObj.connectModalContainer.classList.remove("show");
+        loadLogs();
         updateLogBoard();
     });
     commFuncInit(globalObj);

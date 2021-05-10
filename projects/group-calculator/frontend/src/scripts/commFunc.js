@@ -19,7 +19,7 @@ export const saveLogs = () => {
 
 export const addLog = log => {
     g.logList.push(log);
-    g.logList.sort((a, b) => a.createdAt > b.createdAt);
+    g.logList.sort((a, b) => a.createdAt < b.createdAt);
     if(g.logList.length > 10){
         g.logList = g.logList.slice(1, 11);
     }
