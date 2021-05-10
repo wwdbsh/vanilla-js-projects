@@ -4,7 +4,13 @@ export const commFuncInit = g_ => g = g_;
 
 export const updateActiveUserList = () => {
     g.activeUserDisplay.innerHTML = "ACTIVE USERS";
-    g.userList.forEach(name => g.activeUserDisplay.innerHTML += `<li>${name}</li>`);
+    g.userList.forEach(name => {
+        g.activeUserDisplay.innerHTML += (
+            name === g.me ?
+            `<li class="me">${name}</li>`:
+            `<li>${name}</li>`
+        );
+    });
 };
 
 export const saveLogs = () => {
@@ -22,7 +28,7 @@ export const addLog = log => {
 
 export const updateLogBoard = () => {
     g.logBoard.innerHTML = "";
-    g.logList.forEach(item => {
+    g.logList.forEach((item, idx) => {
         const dateObj = new Date(item.createdAt);
         const h = dateObj.getHours();
         const m = dateObj.getMinutes();
@@ -32,7 +38,7 @@ export const updateLogBoard = () => {
         const date = `${dateString[1]} ${dateString[2]}, ${dateString[3]}`;
         g.logBoard.innerHTML += `
             <li>
-                <div>${item.log}</div>
+                <div>${idx+1}. ${item.log}</div>
                 created at ${date} ${time}
             </li>
         `;
