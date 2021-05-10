@@ -24,7 +24,6 @@ const addEventListeners = () => {
                     break;
                 case "del":
                     alert("it's not working. sorry :)");
-                    break;
                     // clearResult();
                     // g.calDisplay.innerText = displayText.slice(0, displayText.length-1);
                     // if(expression.length > 0){
@@ -38,7 +37,7 @@ const addEventListeners = () => {
                     //         }
                     //     }
                     // }
-                    // break;
+                    break;
                 case "=":
                     if(
                         displayText === "" ||

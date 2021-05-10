@@ -21,7 +21,9 @@ const globalObj = {
     // calculator
     calDisplay:null,
     calKeys:null,
-    logBoard:null
+    logBoard:null,
+    // socket
+    // socket:io("127.0.0.1:80")
 };
 
 export const init = () => {
