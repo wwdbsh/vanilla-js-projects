@@ -9,4 +9,4 @@ Simple calculating application supporting group mode.
 - Develop a backend application with Express.js for socket communication
 - Use local storage to remain results between sessions
 
-[Check Demo](https://wwdbsh.github.io/vanilla-js-projects/projects/group-calculator/frontend)
+[Check Demo](http://group-calculator.s3-website-us-east-1.amazonaws.com/frontend/)
