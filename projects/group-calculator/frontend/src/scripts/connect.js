@@ -24,7 +24,7 @@ const clickConnectBtn = () => {
             g.connectModalContainer.classList.remove("show");
             loadLogs();
             updateLogBoard();
-            updateActiveUserList();
+            g.socket.emit("adduser", name);
         }
     }
 };

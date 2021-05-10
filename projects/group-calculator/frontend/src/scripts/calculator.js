@@ -54,8 +54,7 @@ const addEventListeners = () => {
                             log:`<strong>${g.me}</strong>: ${displayText}=${result}`,
                             createdAt:new Date()
                         };
-                        addLog(logObj);
-                        updateLogBoard();
+                        g.socket.emit("sendlog", logObj);
                     }
                     break;
                 default: // push into expression

@@ -23,7 +23,8 @@ const addEventListeners = () => {
 
 const disconnect = () => {
     g.userList = g.userList.filter(name => name !== g.me);
-    updateActiveUserList();
+    g.activeUserDisplay.innerHTML = "ACTIVE USERS";
+    g.socket.emit("disconnectmanually");
     hideModal();
     g.connectModalContainer.classList.add("show");
     g.logBoard.innerHTML = "";

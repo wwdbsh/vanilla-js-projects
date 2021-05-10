@@ -1,5 +1,5 @@
 import { calculatorInit } from "./calculator.js";
-import { commFuncInit } from "./commFunc.js";
+import { addLog, commFuncInit, updateActiveUserList, updateLogBoard } from "./commFunc.js";
 import { connectInit } from "./connect.js";
 import { disconnectInit } from "./disconnect.js";
 
@@ -23,7 +23,7 @@ const globalObj = {
     calKeys:null,
     logBoard:null,
     // socket
-    // socket:io("127.0.0.1:80")
+    socket:io("http://127.0.0.1:4000")
 };
 
 export const init = () => {
@@ -38,6 +38,14 @@ export const init = () => {
     globalObj.calDisplay = document.getElementById("cal-display");
     globalObj.calKeys = document.getElementsByClassName("cal-btn");
     globalObj.logBoard = document.getElementById("log-board");
+    globalObj.socket.on("sendactiveusers", activeUsers => {
+        globalObj.userList = activeUsers;
+        updateActiveUserList();
+    });
+    globalObj.socket.on("updatelog", logObj => {
+        addLog(logObj);
+        updateLogBoard();
+    });
     commFuncInit(globalObj);
     connectInit(globalObj);
     disconnectInit(globalObj);
