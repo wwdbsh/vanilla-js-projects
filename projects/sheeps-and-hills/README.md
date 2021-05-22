@@ -8,5 +8,6 @@ Source from [Interactive Developer](https://www.youtube.com/watch?v=hCHL7sydzn0&
 
 - Draw hills with curves
 - Draw moving sheeps
+- Implement FPS concept
 
 [Check Demo](https://wwdbsh.github.io/vanilla-js-projects/projects/sheeps-and-hills/)
