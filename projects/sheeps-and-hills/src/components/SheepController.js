@@ -16,7 +16,7 @@ export default class SheepController{
 
     resize(stageWidth, stageHeight){
         this.stageWidth = stageWidth;
-        this.stageWidth = stageHeight;
+        this.stageHeight = stageHeight;
     }
 
     loaded(){
