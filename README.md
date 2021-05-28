@@ -4,6 +4,7 @@ Small vanilla js projects with html5, css, and pure vanilla javascript without a
 
 ### Projects of the month
 
+- [Section Scroll](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/section-scroll)
 - [Sheeps & Hills](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/sheeps-and-hills)
 - [Group Calculator](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/group-calculator)
 - [My Momentum](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/my-momentum)
@@ -22,3 +23,4 @@ Small vanilla js projects with html5, css, and pure vanilla javascript without a
 |19 | [Sortable List](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/sortable-list) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/sortable-list/) |20 | [Speak Number Guessing Game](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/speak-number-guess) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/speak-number-guess/) |
 |21 | [Cat World](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/cat-world) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/cat-world/) |22 | [My Momentum](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/my-momentum) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/my-momentum/) |
 |23 | [Group Calculator](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/group-calculator) | [Check](http://group-calculator.s3-website-us-east-1.amazonaws.com/frontend/) |24 | [Sheeps & Hills](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/sheeps-and-hills) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/sheeps-and-hills/) | 
+|25 | [Section Scroll](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/section-scroll) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/section-scroll/) | |  |  | 
