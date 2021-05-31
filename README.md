@@ -2,12 +2,9 @@
 
 Small vanilla js projects with html5, css, and pure vanilla javascript without any javascript frameworks and libraries
 
-### Projects of the month
+### Projects of the month (June)
 
 - [Section Scroll](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/section-scroll)
-- [Sheeps & Hills](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/sheeps-and-hills)
-- [Group Calculator](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/group-calculator)
-- [My Momentum](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/my-momentum)
 
 | # | Project | Demo | # | Project | Demo |
 |:-:|:-------:|:----:|:-:|:-------:|:----:|
