@@ -4,8 +4,6 @@ Small vanilla js projects with html5, css, and pure vanilla javascript without a
 
 ### Projects of the month (June)
 
-- [Page Scrolling](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/page-scrolling)
-
 | # | Project | Demo | # | Project | Demo |
 |:-:|:-------:|:----:|:-:|:-------:|:----:|
 |01 | [Form Validator](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/form-validator) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/form-validator/) |02 | [Movie Seat Booking](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/movie-seat-booking) | [Check](https://wwdbsh.github.io/vanilla-js-projects/projects/movie-seat-booking/) |
