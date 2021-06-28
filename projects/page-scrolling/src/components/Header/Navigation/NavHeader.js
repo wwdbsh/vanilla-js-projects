@@ -19,7 +19,7 @@ export default class NavHeader{
         this.navHeader.id = props.navHeaderId;
         this.navHeader.className = props.navHeaderId;
         this.img.src = props.logoPath;
-        this.logoIcon.id = props.navToggleId;
-        this.logoIcon.className = props.navToggleId;
+        this.navToggle.id = props.navToggleId;
+        this.navToggle.className = props.navToggleId;
     }
 }

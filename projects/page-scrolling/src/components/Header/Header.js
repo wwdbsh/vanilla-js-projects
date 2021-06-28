@@ -1,3 +1,4 @@
+import Banner from "./Banner/Banner.js";
 import Nav from "./Navigation/Nav.js";
 
 export default class Header{
@@ -15,6 +16,12 @@ export default class Header{
         nav.setState({
             navId:"nav",
             navCenterId:"nav-center"
+        });
+
+        const banner = new Banner({$target:this.header});
+        banner.setState({
+            bannerId:"banner",
+            containerId:"container",
         });
     }
 }

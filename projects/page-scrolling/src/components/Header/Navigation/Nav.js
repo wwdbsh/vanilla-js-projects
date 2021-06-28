@@ -1,3 +1,4 @@
+import LinksContainer from "./LinksContainer.js";
 import NavHeader from "./NavHeader.js";
 
 export default class Nav{
@@ -21,5 +22,8 @@ export default class Nav{
             logoPath:"src/img/logo.svg",
             navToggleId:"nav-toggle",
         });
+
+        const linksContainer = new LinksContainer({$target:this.navCenter});
+        
     }
 }
