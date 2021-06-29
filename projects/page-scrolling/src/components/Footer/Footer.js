@@ -12,7 +12,7 @@ export default class Footer{
         this.span.className = "date";
         this.p.appendChild(this.span);
 
-        this.p.insertAdjacentText("afterbegin", "copyright © backroads travel tours company ");
+        this.p.insertAdjacentText("afterbegin", "copyright © sang travel tours company ");
         this.span.insertAdjacentText("afterend", ". all rights reserved");
     }
 }

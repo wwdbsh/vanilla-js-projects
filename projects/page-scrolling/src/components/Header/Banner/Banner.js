@@ -18,6 +18,7 @@ export default class Banner{
         this.link.href = "#tours";
         this.link.id = "explore-btn";
         this.link.className = "scroll-link btn btn-white";
+        this.link.innerText = "explore tours";
         this.container.appendChild(this.link);
     }
     setState(props){

@@ -1,6 +1,7 @@
 import Footer from "./components/Footer/Footer.js";
 import Header from "./components/Header/Header.js";
 import Section from "./components/Section/Section.js";
+import { runScript } from "./scripts/script.js";
 
 export default class App{
     constructor($target){
@@ -29,5 +30,16 @@ export default class App{
         });
 
         const footer = new Footer({$target});
+
+        const topLink = document.createElement("a");
+        topLink.className = "scroll-link top-link";
+        topLink.href = "#home";
+        $target.appendChild(topLink);
+
+        const topLinkIcon = document.createElement("i");
+        topLinkIcon.className = "fas fa-arrow-up";
+        topLink.appendChild(topLinkIcon);
+
+        runScript();
     }
 };

@@ -6,5 +6,6 @@ Scroll web page to unseen areas
 
 - Fixed navigation bar
 - Show hidden area with scrolling
+- Responsive web design
 
 [Check Demo](https://wwdbsh.github.io/vanilla-js-projects/projects/page-scrolling/)
