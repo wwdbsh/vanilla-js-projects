@@ -2,7 +2,7 @@
 
 Small vanilla js projects with html5, css, and pure vanilla javascript without any javascript frameworks and libraries
 
-### Projects of the month (June)
+### Projects of the month (July)
 
 - [Page Scrolling](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/page-scrolling)
 
