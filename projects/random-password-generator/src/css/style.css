@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --bg-color:#4799F3;
+    --gen-box-color:#0B0F2F;
+    --font-color:#FDFDFD;
+}
+
+body{
+    background-color: var(--bg-color);
+    background-size:cover;
+    background-position:center center;
+    color:var(--font-color);
+    font-family:"Lato", sans-serif;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:center;
+    min-height:100vh;
+    margin:0;
+}
+
+#password-generator-box{
+    background-color:var(--gen-box-color);
+    padding:33px 33px;
+    border-radius:15px;
+}
+
+#password-generator-box > h2{
+    font-size:45px;
+    font-weight:300;
+    margin:0;
+}
