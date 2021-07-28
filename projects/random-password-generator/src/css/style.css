@@ -26,12 +26,21 @@ body{
 
 #password-generator-box{
     background-color:var(--gen-box-color);
-    padding:33px 33px;
+    padding:25px 33px;
     border-radius:15px;
+    width:560px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#password-generator-box > h2{
-    font-size:45px;
+#title{
+    font-size:44px;
+    width:100%;
     font-weight:300;
-    margin:0;
+    margin:0 0 15px 0;
+}
+
+.square-box{
+    
 }
