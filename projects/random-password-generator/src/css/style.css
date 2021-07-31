@@ -9,7 +9,7 @@
     --gen-box-color:#0B0F2F;
     --font-color:#FDFDFD;
     --square-bg-color:#1E223F;
-    --square-font-color:#F8F8F9;
+    --square-font-color:rgba(255,255,255,0.9);
 }
 
 body{
@@ -44,7 +44,7 @@ body{
 }
 
 .section-title{
-
+    color:rgba(255,255,255,0.7);
 }
 
 .inner-box{
@@ -68,3 +68,25 @@ body{
     padding:30px 20px;
     text-align: center;
 }
+
+#gen-btn{
+    margin:10px 0;
+    text-align: center;
+    padding:25px;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:2px;    
+    background: linear-gradient(306deg, rgba(2,0,36,1) 0%, rgba(111,82,161,1) 0%, rgba(106,123,221,1) 100%);
+    cursor: pointer;
+}
+
+.square-box.length-box{
+    display: flex;
+    align-items:center;
+}
+
+#range-controller{
+    width:100%;
+    margin:0 10px;
+}
+

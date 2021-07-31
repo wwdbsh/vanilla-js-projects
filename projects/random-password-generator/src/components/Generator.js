@@ -26,7 +26,7 @@ export default class Generator{
             sectionClassName:"length-section",
             sectionTitleInnerHTML:`
                 <span class="section-title">LENGTH: </span>
-                <span id="length-value"></span>
+                <span id="length-value">18</span>
             `,
             items:[new LenghController()]
         });
@@ -38,6 +38,11 @@ export default class Generator{
             new SettingController(),
             new SettingController(),
         ];
+        settingControllers[0].setState({title:"Include Uppercase"});
+        settingControllers[1].setState({title:"Include Lowercase"});
+        settingControllers[2].setState({title:"Include Numbers"});
+        settingControllers[3].setState({title:"Include Symbols"});
+
         const settingSection = new Section({$target:innerBox});
         settingSection.setState({
             sectionId:"setting-section",
