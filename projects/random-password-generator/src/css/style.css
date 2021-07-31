@@ -8,6 +8,8 @@
     --bg-color:#4799F3;
     --gen-box-color:#0B0F2F;
     --font-color:#FDFDFD;
+    --square-bg-color:#1E223F;
+    --square-font-color:#F8F8F9;
 }
 
 body{
@@ -38,9 +40,31 @@ body{
     font-size:44px;
     width:100%;
     font-weight:300;
-    margin:0 0 15px 0;
+    margin:0 0 35px 0;
+}
+
+.section-title{
+
+}
+
+.inner-box{
+    width:100%;
 }
 
 .square-box{
-    
+    width:100%;
+    background-color:var(--square-bg-color);
+    color:var(--square-font-color);
+    font-size:22px;
+    font-weight:0;
+    letter-spacing: 1px;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+#display-panel{
+    padding:30px 20px;
+    text-align: center;
 }
