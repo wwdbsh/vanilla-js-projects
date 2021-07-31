@@ -2,10 +2,9 @@
 
 Small vanilla js projects with html5, css, and pure vanilla javascript without any javascript frameworks and libraries
 
-### Projects of the month (July)
+### Projects of the month (August)
 
 - [Random Password Generator](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/random-password-generator)
-- [Page Scrolling](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/page-scrolling)
 
 | # | Project | Demo | # | Project | Demo |
 |:-:|:-------:|:----:|:-:|:-------:|:----:|
