@@ -38,10 +38,10 @@ export default class Generator{
             new SettingController(),
             new SettingController(),
         ];
-        settingControllers[0].setState({title:"Include Uppercase"});
-        settingControllers[1].setState({title:"Include Lowercase"});
-        settingControllers[2].setState({title:"Include Numbers"});
-        settingControllers[3].setState({title:"Include Symbols"});
+        settingControllers[0].setState({title:"Include Uppercase", switchId:"upper-btn"});
+        settingControllers[1].setState({title:"Include Lowercase", switchId:"lower-btn"});
+        settingControllers[2].setState({title:"Include Numbers", switchId:"number-btn"});
+        settingControllers[3].setState({title:"Include Symbols", switchId:"symbol-btn"});
 
         const settingSection = new Section({$target:innerBox});
         settingSection.setState({

@@ -10,6 +10,8 @@
     --font-color:#FDFDFD;
     --square-bg-color:#1E223F;
     --square-font-color:rgba(255,255,255,0.9);
+    --inactive-switch:#6E7081;
+    --active-switch:#5E6BDA;
 }
 
 body{
@@ -58,15 +60,16 @@ body{
     font-size:22px;
     font-weight:0;
     letter-spacing: 1px;
-    padding:20px;
+    padding:13px;
     border-radius:10px;
     margin-bottom:10px;
     margin-top:10px;
+    display:flex;
 }
 
 #display-panel{
     padding:30px 20px;
-    text-align: center;
+    justify-content:center;
 }
 
 #gen-btn{
@@ -81,7 +84,6 @@ body{
 }
 
 .square-box.length-box{
-    display: flex;
     align-items:center;
 }
 
@@ -90,3 +92,43 @@ body{
     margin:0 10px;
 }
 
+.switch-box{
+    background-color:var(--inactive-switch);
+    padding:3px;
+    width:80px;
+    height:45px;
+    display:flex;
+    align-items: center;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.switch-btn{
+    background-color: #fff;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    padding:0;
+    margin:2px;
+    transform:translateX(3%);
+    transition: transform .5s ease-in-out;
+}
+
+.setting-title{
+    display:flex;
+    align-items: center;
+    width:90%;
+}
+
+#range-controller{
+    cursor:pointer;
+}
+
+.switch-box.active{
+    background-color:var(--active-switch);
+}
+
+.switch-btn.active{
+    transform:translateX(85%);
+    transition: transform .5s ease-in-out;
+}

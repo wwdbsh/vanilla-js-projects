@@ -1,4 +1,5 @@
 import Generator from "./components/Generator.js";
+import { runScript } from "./scripts/script.js";
 
 export default class App{
     constructor($target){
@@ -7,5 +8,6 @@ export default class App{
             id:"password-generator-box",
             className:"outter-box"
         });
+        runScript();
     }
 }
