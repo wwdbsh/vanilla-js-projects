@@ -74,13 +74,17 @@ body{
 
 #gen-btn{
     margin:10px 0;
-    text-align: center;
+    justify-content: center;
     padding:25px;
     font-size:20px;
     font-weight:600;
     letter-spacing:2px;    
     background: linear-gradient(306deg, rgba(2,0,36,1) 0%, rgba(111,82,161,1) 0%, rgba(106,123,221,1) 100%);
     cursor: pointer;
+}
+
+#gen-btn:active{
+    transform:scale(.993);
 }
 
 .square-box.length-box{
@@ -111,7 +115,7 @@ body{
     padding:0;
     margin:2px;
     transform:translateX(3%);
-    transition: transform .5s ease-in-out;
+    transition: transform .4s ease-in-out;
 }
 
 .setting-title{
@@ -130,5 +134,5 @@ body{
 
 .switch-btn.active{
     transform:translateX(85%);
-    transition: transform .5s ease-in-out;
+    transition: transform .4s ease-in-out;
 }
