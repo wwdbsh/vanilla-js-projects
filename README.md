@@ -1,7 +1,7 @@
 ## Vanilla Javascript Projects
 
 Small vanilla js projects with html5, css, and pure vanilla javascript without any javascript frameworks and libraries
-
+asdfasfasf
 ### Projects of the month (September)
 
 - [Random Password Generator](https://github.com/wwdbsh/vanilla-js-projects/tree/master/projects/random-password-generator)
